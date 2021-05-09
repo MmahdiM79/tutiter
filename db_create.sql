@@ -46,3 +46,16 @@ CREATE TABLE `messages` (
     FOREIGN KEY (`sender_id`) REFERENCES `users` (`id`),
     FOREIGN KEY (`receiver_id`) REFERENCES `users` (`id`)
 );
+
+
+
+
+-- create hashtags table
+CREATE TABLE `hashtags` (
+	`id` INT AUTO_INCREMENT,
+    `ava_id` INT NOT NULL,
+    `hashtag` CHAR(5) NOT NULL,
+    
+    PRIMARY KEY (`id`, `hashtag`),
+    FOREIGN KEY (`ava_id`) REFERENCES `avas` (`id`)
+);
