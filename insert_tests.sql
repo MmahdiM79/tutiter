@@ -59,5 +59,26 @@ VALUES
 
 
 
+INSERT INTO messages (
+	sender_id,
+    receiver_id,
+    message
+)
+VALUES
+	('1', '2', 'salam. khubi?'),
+    ('1', '2', 'che khabara?'),
+    ('2', '1', 'khubam salamati'),
+    ('2', '1', 'hich. daneshgah'),
+    ('3', '5', 'giutaret dorost shod?'),
+    ('5', '3', 'na hanuz'),
+    ('3', '4', 'emruz miyay?'),
+    ('4', '3', 'na kar daram'),
+    ('3', '4', 'ey baba'),
+    ('1', '4', 'ahang jadid alli bud'),
+    ('4', '1', 'mersi')
+;
+
+
+
 
 
