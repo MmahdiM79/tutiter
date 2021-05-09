@@ -1,5 +1,5 @@
 INSERT INTO users (
-	username,
+    username,
     password,
     Fname,
     Lname,
@@ -8,7 +8,7 @@ INSERT INTO users (
     bio
 )
 VALUES 
-	('mahdi79', '1234', 
+     ('mahdi79', '1234', 
      'mahdi', 'malmasi', 
      '2000-01-01', '2020-01-01',
      'learning sql')
@@ -39,12 +39,12 @@ VALUES
 
 
 INSERT INTO avas (
-	sender_id,
+    sender_id,
     ava,
     write_date
 )
 VALUES
-	('1', 'test avaliye', '2017-01-01'),
+    ('1', 'test avaliye', '2017-01-01'),
     ('1', 'avalin ava tutiter', '2017-02-02'),
     ('2', 'laptop shadidan gerun shode !', '2019-05-03'),
     ('3', 'khaste az in uni', '2021-02-04'),
@@ -60,12 +60,12 @@ VALUES
 
 
 INSERT INTO messages (
-	sender_id,
+    sender_id,
     receiver_id,
     message
 )
 VALUES
-	('1', '2', 'salam. khubi?'),
+    ('1', '2', 'salam. khubi?'),
     ('1', '2', 'che khabara?'),
     ('2', '1', 'khubam salamati'),
     ('2', '1', 'hich. daneshgah'),
