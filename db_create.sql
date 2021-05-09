@@ -6,7 +6,7 @@ CREATE DATABASE `tutiter`;
 
 -- create users table 
 CREATE TABLE `users` (
-	`id` INT AUTO_INCREMENT,
+    `id` INT AUTO_INCREMENT,
     `username` VARCHAR(20) NOT NULL,
     `password` VARCHAR(128) NOT NULL,
     `Fname` VARCHAR(20) NOT NULL,
@@ -23,10 +23,10 @@ CREATE TABLE `users` (
 
 -- create avas table
 CREATE TABLE `avas` (
-	`id` INT AUTO_INCREMENT,
+    `id` INT AUTO_INCREMENT,
     `sender_id` INT NOT NULL,
     `ava` varchar(256) NOT NULL,
-    `modified` DATE NOT NULL,
+    `write_date` DATE NOT NULL,
     
     PRIMARY KEY(`id`),
     FOREIGN KEY (`sender_id`) REFERENCES `users` (`id`)
