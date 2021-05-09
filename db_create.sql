@@ -32,3 +32,17 @@ CREATE TABLE `avas` (
     FOREIGN KEY (`sender_id`) REFERENCES `users` (`id`)
 );
 
+
+
+
+-- create messages table
+CREATE TABLE `messages` (
+	`id` INT AUTO_INCREMENT,
+    `sender_id` INT NOT NULL,
+    `receiver_id` INT NOT NULL,
+    `message` VARCHAR(256) NOT NULL,
+    
+    PRIMARY KEY(`id`),
+    FOREIGN KEY (`sender_id`) REFERENCES `users` (`id`),
+    FOREIGN KEY (`receiver_id`) REFERENCES `users` (`id`)
+);
