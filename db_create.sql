@@ -76,8 +76,8 @@ CREATE TABLE `blocked` (
 
 
 
--- create follows table
-CREATE TABLE `follows` (
+-- create follow table
+CREATE TABLE `follow` (
 	`user1` INT NOT NULL,
     `user2` INT NOT NULL,
     
