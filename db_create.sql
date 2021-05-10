@@ -12,7 +12,7 @@ CREATE TABLE `users` (
     `Fname` VARCHAR(20) NOT NULL,
     `Lname` VARCHAR(20) NOT NULL,
     `birth_day` DATE NOT NULL,
-    `register_date` DATE NOT NULL,
+    `register_date` DATE NOT NULL DEFAULT  (current_date()),
     `bio` varchar(64) DEFAULT NULL,
     
     PRIMARY KEY(`id`, `username`)
