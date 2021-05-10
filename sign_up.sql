@@ -15,9 +15,7 @@ INSERT INTO users (
     Fname,
     Lname,
     birth_day,
-    register_date,
-    bio
 )
-VALUE ('kasra80', '4567', 'kasra', 'zarei', '2001-04-23', current_date(), DEFAULT);
+VALUE ('kasra80', '4567', 'kasra', 'zarei', '2001-04-23');
 
 
