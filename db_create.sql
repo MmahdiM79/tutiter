@@ -85,3 +85,15 @@ CREATE TABLE `follow` (
     FOREIGN KEY (`user1`) REFERENCES `users` (`id`),
     FOREIGN KEY (`user2`) REFERENCES `users` (`id`)
 );
+
+
+
+-- create likes table
+CREATE TABLE `likes` (
+	`user_id` INT NOT NULL,
+    `ava_id` INT NOT NULL,
+    
+    PRIMARY KEY (`user_id`, `ava_id`),
+    FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+    FOREIGN KEY (`ava_id`) REFERENCES `avas` (`id`)
+);
