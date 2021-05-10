@@ -105,3 +105,11 @@ VALUES
     ('10','neded')
 ;
 
+
+
+
+INSERT INTO blocked 
+VALUES
+	('1', '3'),
+    ('2', '4')
+;
