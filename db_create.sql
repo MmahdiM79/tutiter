@@ -59,3 +59,16 @@ CREATE TABLE `hashtags` (
     PRIMARY KEY (`id`, `hashtag`),
     FOREIGN KEY (`ava_id`) REFERENCES `avas` (`id`)
 );
+
+
+
+
+-- create blocked tabel
+CREATE TABLE `blocked` (
+	`user1` INT NOT NULL,
+    `user2` INT NOT NULL,
+    
+    PRIMARY KEY (`user1`, `user2`),
+    FOREIGN KEY (`user1`) REFERENCES `users` (`id`),
+    FOREIGN KEY (`user2`) REFERENCES `users` (`id`)
+);
