@@ -72,3 +72,16 @@ CREATE TABLE `blocked` (
     FOREIGN KEY (`user1`) REFERENCES `users` (`id`),
     FOREIGN KEY (`user2`) REFERENCES `users` (`id`)
 );
+
+
+
+
+-- create follows table
+CREATE TABLE `follows` (
+	`user1` INT NOT NULL,
+    `user2` INT NOT NULL,
+    
+    PRIMARY KEY (`user1`, `user2`),
+    FOREIGN KEY (`user1`) REFERENCES `users` (`id`),
+    FOREIGN KEY (`user2`) REFERENCES `users` (`id`)
+);
