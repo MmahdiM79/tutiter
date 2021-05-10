@@ -153,3 +153,22 @@ VALUES
     ('5', '6'),
     ('5', '7')
 ;
+
+
+
+
+INSERT INTO comments (
+	user_id,
+    ava_id,
+    comment
+)
+VALUES
+	('1', '3', 'are khayli :('),
+    ('2', '4', 'are be khoda'),
+    ('3', '7', 'alii bud'),
+    ('4', '8', 'ay baba shans nadari'),
+    ('5', '7', 'nice'),
+    ('1', '9', 'are manam daram divune misham'),
+    ('2', '5', 'chi ajab *_*'),
+    ('3', '8', 'shans nadari')
+;
