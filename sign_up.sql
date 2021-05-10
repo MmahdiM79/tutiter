@@ -14,7 +14,7 @@ INSERT INTO users (
     password,
     Fname,
     Lname,
-    birth_day,
+    birth_day
 )
 VALUE ('kasra80', '4567', 'kasra', 'zarei', '2001-04-23');
 
