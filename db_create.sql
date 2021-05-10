@@ -97,3 +97,17 @@ CREATE TABLE `likes` (
     FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
     FOREIGN KEY (`ava_id`) REFERENCES `avas` (`id`)
 );
+
+
+
+
+CREATE TABLE `comments` (
+	`id` INT  AUTO_INCREMENT,
+    `user_id` INT NOT NULL,
+    `ava_id` INT NOT NULL,
+    `comment` VARCHAR(256) NOT NULL,
+    
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+    FOREIGN KEY (`ava_id`) REFERENCES `avas` (`id`)
+);
