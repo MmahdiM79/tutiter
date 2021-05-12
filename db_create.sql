@@ -26,7 +26,7 @@ CREATE TABLE `avas` (
     `id` INT AUTO_INCREMENT,
     `sender_id` INT NOT NULL,
     `ava` varchar(256) NOT NULL,
-    `write_date` DATE NOT NULL,
+    `write_date` DATETIME NOT NULL DEFAULT  (now()),
     
     PRIMARY KEY(`id`),
     FOREIGN KEY (`sender_id`) REFERENCES `users` (`id`)
