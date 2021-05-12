@@ -119,7 +119,7 @@ CREATE TABLE `comments` (
 -- create login records table
 CREATE TABLE `login_records` (
 	`user_id` INT NOT NULL,
-    `date` DATE NOT NULL DEFAULT (current_date()),
+    `date_time` DATETIME NOT NULL DEFAULT (now()),
     
     PRIMARY KEY (`user_id`, `date`),
     FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
