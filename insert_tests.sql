@@ -44,16 +44,16 @@ INSERT INTO avas (
     write_date
 )
 VALUES
-    ('1', 'test avaliye', '2017-01-01'),
-    ('1', 'avalin ava tutiter', '2017-02-02'),
-    ('2', 'laptop shadidan gerun shode !', '2019-05-03'),
-    ('3', 'khaste az in uni', '2021-02-04'),
-    ('3', '@__@ ajab', '2021-01-23'),
-    ('4', 'new bit add on spatify', '2019-11-05'),
-    ('4', 'check out my new song guys', '2021-02-10'),
-    ('5', 'giutaram emruz pokid :/', '2020-09-15'),
-    ('2', 'dars ha vel kon nistan', '2020-10-29'),
-    ('5', 'sim giutar khub dige nis', '2018-12-12')
+    ('1', 'test avaliye', '2017-01-01 09:41:00'),
+    ('1', 'avalin ava tutiter', '2017-02-02 09:41:00'),
+    ('2', 'laptop shadidan gerun shode !', '2019-05-03 09:41:00'),
+    ('3', 'khaste az in uni', '2021-02-04 09:41:00'),
+    ('3', '@__@ ajab', '2021-01-23 09:41:00'),
+    ('4', 'new bit add on spatify', '2019-11-05 09:41:00'),
+    ('4', 'check out my new song guys', '2021-02-10 09:41:00'),
+    ('5', 'giutaram emruz pokid :/', '2020-09-15 09:41:00'),
+    ('2', 'dars ha vel kon nistan', '2020-10-29 09:41:00'),
+    ('5', 'sim giutar khub dige nis', '2018-12-12 09:41:00')
 ;
 
 
