@@ -5,7 +5,7 @@
 -- kasra80 block mahdi79
 INSERT INTO blocked
 VALUES
-	(userID('kasra80'), userID('mahdi79'))
+	(userID('kasra80'), userID('mahdi79')),
 	(userID('mahdi79'), userID('kasra80'))
 ;
 	
