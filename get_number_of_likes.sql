@@ -14,10 +14,13 @@ LEFT OUTER JOIN blocked b
 JOIN likes l
 	ON l.ava_id = a.id
     
-WHERE a.id = 1 
-	  AND
-      sender_id NOT IN 
+WHERE a.id = 3 
+	  AND (
+		sender_id NOT IN 
 			(select user1 from blocked where user2 = userID('am80')) 
+		OR 
+        sender_id IS NULL
+	  )
             
 GROUP BY a.id
  
