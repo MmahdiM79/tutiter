@@ -9,7 +9,7 @@
 -- check that mahdi79 blocked kasra80 or not
 SELECT *
 FROM blocked
-WHERE user1 = userID('mahdi79') and user2 = userID('kasra79');
+WHERE user1 = userID('mahdi79') and user2 = userID('kasra80');
 
 
 -- add kasra80 comment if the resualt of pervious query is null
