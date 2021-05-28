@@ -1,0 +1,20 @@
+
+
+
+
+
+DELIMITER $$
+
+CREATE FUNCTION userNAME(user_id INT) 
+RETURNS INT
+DETERMINISTIC
+
+BEGIN
+   RETURN (SELECT username FROM users WHERE id = user_id);
+END; 
+
+
+
+
+
+
