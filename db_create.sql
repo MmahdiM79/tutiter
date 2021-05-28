@@ -102,13 +102,11 @@ CREATE TABLE `likes` (
 
 
 CREATE TABLE `comments` (
-	`id` INT  AUTO_INCREMENT,
-    `user_id` INT NOT NULL,
+	`comment_id` INT NOT NULL,
     `ava_id` INT NOT NULL,
-    `comment` VARCHAR(256) NOT NULL,
     
-    PRIMARY KEY (`id`),
-    FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+    PRIMARY KEY (`comment_id`, `ava_id`),
+    FOREIGN KEY (`comment_id`) REFERENCES `avas` (`id`),
     FOREIGN KEY (`ava_id`) REFERENCES `avas` (`id`)
 );
 
