@@ -1,6 +1,8 @@
 
 
 
+
+-- alisaz search for avas with price hashtag
 SELECT DISTINCT userNAME(sender_id) as sender, ava
 FROM avas a
 LEFT OUTER JOIN blocked b
