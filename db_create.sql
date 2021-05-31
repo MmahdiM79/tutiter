@@ -109,6 +109,7 @@ CREATE TABLE `follow` (
 
 
 
+
 -- create likes table
 CREATE TABLE `likes` (
 	`user_id` INT NOT NULL,
@@ -122,12 +123,11 @@ CREATE TABLE `likes` (
 
 
 
-
 -- create login records table
 CREATE TABLE `login_records` (
 	`user_id` INT NOT NULL,
     `date_time` DATETIME NOT NULL DEFAULT (now()),
     
-    PRIMARY KEY (`user_id`, `date_time`),
+    
     FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 );
