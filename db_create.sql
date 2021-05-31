@@ -56,11 +56,9 @@ CREATE TABLE `messages` (
 -- create hashtags table
 CREATE TABLE `hashtags` (
 	`id` INT AUTO_INCREMENT,
-    `ava_id` INT NOT NULL,
     `hashtag` CHAR(5) NOT NULL,
     
-    PRIMARY KEY (`id`, `hashtag`),
-    FOREIGN KEY (`ava_id`) REFERENCES `avas` (`id`)
+    PRIMARY KEY (`id`, `hashtag`)
 );
 
 
