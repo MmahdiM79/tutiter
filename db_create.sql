@@ -1,6 +1,5 @@
 CREATE DATABASE `tutiter`;
-
-
+USE `tutiter`;
 
 
 
@@ -27,9 +26,11 @@ CREATE TABLE `avas` (
     `sender_id` INT NOT NULL,
     `ava` varchar(256) NOT NULL,
     `write_date` DATETIME NOT NULL DEFAULT  (now()),
+    `comment_of` INT DEFAULT  NULL,
     
     PRIMARY KEY(`id`),
-    FOREIGN KEY (`sender_id`) REFERENCES `users` (`id`)
+    FOREIGN KEY (`sender_id`) REFERENCES `users` (`id`),
+    FOREIGN KEY (`comment_of`) REFERENCES  `avas` (`id`)
 );
 
 
