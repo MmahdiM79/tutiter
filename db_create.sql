@@ -64,6 +64,17 @@ CREATE TABLE `hashtags` (
 
 
 
+-- hold the hashtags of each post
+CREATE TABLE `avas_hashtags` (
+    `ava_id` INT NOT NULL,
+    `hashtag_id` INT NOT NULL,
+
+    FOREIGN KEY (`ava_id`) REFERENCES `avas` (`id`),
+    FOREIGN KEY (`hashtag_id`) REFERENCES `hashtags` (`id`)
+);
+
+
+
 -- create blocked tabel
 CREATE TABLE `blocked` (
 	`user1` INT NOT NULL,
