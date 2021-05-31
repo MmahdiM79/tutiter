@@ -3,6 +3,8 @@ USE `tutiter`;
 
 
 
+
+
 -- create users table 
 CREATE TABLE `users` (
     `id` INT AUTO_INCREMENT,
@@ -13,6 +15,7 @@ CREATE TABLE `users` (
     `birth_day` DATE NOT NULL,
     `register_date` DATE NOT NULL DEFAULT  (current_date()),
     `bio` varchar(64) DEFAULT NULL,
+
     
     PRIMARY KEY(`id`, `username`)
 );
@@ -27,6 +30,7 @@ CREATE TABLE `avas` (
     `ava` varchar(256) NOT NULL,
     `write_date` DATETIME NOT NULL DEFAULT  (now()),
     `comment_of` INT DEFAULT  NULL,
+
     
     PRIMARY KEY(`id`),
     FOREIGN KEY (`sender_id`) REFERENCES `users` (`id`),
@@ -43,6 +47,7 @@ CREATE TABLE `messages` (
     reciver_id INT NOT NULL,
     message VARCHAR(256) DEFAULT NULL,
     ava_id INT DEFAULT NULL,
+
     
     PRIMARY KEY(`id`),
     FOREIGN KEY (`sender_id`) REFERENCES `users` (`id`),
@@ -58,6 +63,7 @@ CREATE TABLE `hashtags` (
 	`id` INT AUTO_INCREMENT,
     `hashtag` CHAR(5) NOT NULL,
     
+
     PRIMARY KEY (`id`, `hashtag`)
 );
 
@@ -68,6 +74,7 @@ CREATE TABLE `hashtags` (
 CREATE TABLE `avas_hashtags` (
     `ava_id` INT NOT NULL,
     `hashtag_id` INT NOT NULL,
+
 
     FOREIGN KEY (`ava_id`) REFERENCES `avas` (`id`),
     FOREIGN KEY (`hashtag_id`) REFERENCES `hashtags` (`id`)
@@ -80,11 +87,12 @@ CREATE TABLE `avas_hashtags` (
 CREATE TABLE `blocked` (
 	`user1` INT NOT NULL,
     `user2` INT NOT NULL,
-    
 
+    
     FOREIGN KEY (`user1`) REFERENCES `users` (`id`),
     FOREIGN KEY (`user2`) REFERENCES `users` (`id`)
 );
+
 
 
 
@@ -94,7 +102,7 @@ CREATE TABLE `follow` (
 	`user1` INT NOT NULL,
     `user2` INT NOT NULL,
     
-    PRIMARY KEY (`user1`, `user2`),
+
     FOREIGN KEY (`user1`) REFERENCES `users` (`id`),
     FOREIGN KEY (`user2`) REFERENCES `users` (`id`)
 );
@@ -106,20 +114,8 @@ CREATE TABLE `likes` (
 	`user_id` INT NOT NULL,
     `ava_id` INT NOT NULL,
     
-    PRIMARY KEY (`user_id`, `ava_id`),
+
     FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
-    FOREIGN KEY (`ava_id`) REFERENCES `avas` (`id`)
-);
-
-
-
-
-CREATE TABLE `comments` (
-	`comment_id` INT NOT NULL,
-    `ava_id` INT NOT NULL,
-    
-    PRIMARY KEY (`comment_id`, `ava_id`),
-    FOREIGN KEY (`comment_id`) REFERENCES `avas` (`id`),
     FOREIGN KEY (`ava_id`) REFERENCES `avas` (`id`)
 );
 
