@@ -58,31 +58,14 @@ VALUES
 
 
 
-
-
 INSERT INTO hashtags (
-	ava_id,
     hashtag
 )
 VALUES
-	('1', 'test1'), 
-    ('2', '1avas'),
-    ('3', 'price'),
-    ('4', 'uniPM'),
-    ('5', 'ajaab'),
-    ('6', 'music'),
-    ('7', 'music'),
-    ('8', 'gitar'),
-    ('9', 'exams'),
-    ('10','gitar'),
-    ('1', 'newPS'),
-    ('6', 'songs'),
-    ('9', 'lssns'),
-    ('4', 'schul'),
-    ('5', 'alaki'),
-    ('8', 'price'),
-    ('3', 'lptop'),
-    ('10','neded')
+    ('music'),
+    ('price'),
+    ('uniHW'),
+    ('giutr')
 ;
 
 
