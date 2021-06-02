@@ -28,7 +28,7 @@ CREATE TABLE `avas` (
     `id` INT AUTO_INCREMENT,
     `sender_id` INT NOT NULL,
     `ava` varchar(256) NOT NULL,
-    `write_date` DATETIME NOT NULL DEFAULT  (now()),
+    `write_date` DATETIME NOT NULL DEFAULT (now()),
     `comment_of` INT DEFAULT  NULL,
 
     
@@ -47,6 +47,7 @@ CREATE TABLE `messages` (
     reciver_id INT NOT NULL,
     message VARCHAR(256) DEFAULT NULL,
     ava_id INT DEFAULT NULL,
+    sent_date DATETIME NOT NULL DEFAULT (now()),
 
     
     PRIMARY KEY(`id`),
