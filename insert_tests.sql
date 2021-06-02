@@ -58,6 +58,8 @@ VALUES
 
 
 
+
+
 INSERT INTO hashtags (
     hashtag
 )
@@ -71,10 +73,17 @@ VALUES
 
 
 
-INSERT INTO blocked 
+
+INSERT INTO avas_hashtags 
 VALUES
-	('1', '3'),
-    ('2', '4')
+	('6', '1'),
+    ('7', '1'),
+    ('3', '2'),
+    ('10', '2'),
+    ('4', '3'),
+    ('9', '3'),
+    ('8', '4'),
+    ('10', '4')
 ;
 
 
