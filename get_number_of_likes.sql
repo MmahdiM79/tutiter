@@ -4,9 +4,10 @@
 
 
 
+-- am80 wants to see the number of likes of ava with id 3
 
 SELECT DISTINCT 
-    count(ava_id) as n_likes
+    ava, count(ava_id) as n_likes
     
 FROM avas a
 LEFT OUTER JOIN blocked b
