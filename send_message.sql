@@ -15,7 +15,7 @@ SELECT * FROM blocked WHERE user1 = avaSenderID(6) AND user2 = userID('mahdi79')
 
 
 -- add ae2079 message
-INSERT INTO messages VALUE (DEFAULT, userID('ae2079'), userID('mahdi79'), 'ino didi?', '6');
+INSERT INTO messages VALUE (DEFAULT, userID('ae2079'), userID('mahdi79'), 'ino didi?', '6', DEFAULT);
 
 
 
