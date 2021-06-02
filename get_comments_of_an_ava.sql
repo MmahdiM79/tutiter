@@ -3,22 +3,32 @@
 
 
 
--- kasra79 wants to see mahdi79 ava's comments
+-- am80 wants to see alisaz ava's comments
 
 
 
-
--- check that mahdi79 blocked kasra80 or not
+-- check that alisaz blocked am80 or not
 SELECT *
 FROM blocked
-WHERE user1 = userID('mahdi79') and user2 = userID('kasra79');
+WHERE user1 = userID('alisaz') and user2 = userID('am80');
+
 
 
 
 -- get comments 
-SELECT DISTINCT *
-FROM avas a1, avas a2, comments c
-Where a1.id = '2' and (c.comment_id = a2.id and c.ava_id = '2')
+SELECT DISTINCT userNAME(a2.sender_id) as sender, a2.ava, a2.write_date
+
+FROM avas a1
+JOIN avas a2
+	ON a1.id = a2.comment_of
+LEFT OUTER JOIN blocked b
+	ON b.user1 = a2.sender_id
+    
+WHERE a2.comment_of = '7' AND (b.user2 != userID('am80') OR b.user2 IS NULL)
+
+ORDER BY a2.write_date
+    
+
 
 
 
