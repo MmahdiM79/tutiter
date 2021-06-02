@@ -10,7 +10,7 @@ RETURNS CHAR(5)
 DETERMINISTIC
 
 BEGIN
-   RETURN (SELECT username FROM hashtags WHERE id = hashtag_id);
+   RETURN (SELECT hashtag FROM hashtags WHERE id = hashtag_id);
 END; 
 
 
