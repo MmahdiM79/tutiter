@@ -161,6 +161,27 @@ VALUES
 
 
 
+INSERT INTO messages (
+    sender_id,
+    reciver_id,
+    message,
+    sent_date
+)
+VALUES
+    ('1', '2', 'salam khubi?', '2020-01-02 09:10:23'),
+    ('2', '1', 'mamnun to khubi? che khabara?', '2020-01-02 09:13:23'),
+    ('5', '4', 'kar jadid alli bud', '2018-01-02 09:10:23'),
+    ('4', '5', 'mamnun', '2018-01-02 09:12:23'),
+    ('1', '5', 'dars ha khub pish mire?', '2019-05-02 10:50:22'),
+    ('5', '1', 'na kheyli', '2019-05-02 10:55:00'),
+    ('1', '4', 'kar jadid dari?', '2021-03-02 15:50:22'),
+    ('4', '1', 'na felan', '2021-03-02 15:53:22')
+;
+
+
+
+
+
 INSERT INTO login_records (
 	user_id,
     date_time
