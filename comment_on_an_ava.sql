@@ -3,24 +3,19 @@
 
 
 
--- kasra80 leave a comment on mahdi79 post
+-- mahdi79 leave a comment on alisaz post
 
-
--- check that mahdi79 blocked kasra80 or not
+-- check that alisaz blocked mahdi79 or not
 SELECT *
 FROM blocked
-WHERE user1 = userID('mahdi79') and user2 = userID('kasra80');
+WHERE user1 = userID('alisaz') and user2 = userID('mahdi79');
 
 
--- add kasra80 comment if the resualt of pervious query is null
-INSERT INTO avas(sender_id, ava) 
-VALUE (userID('kasra80'), 'alli shode');
+-- add mahdi79 comment if the resualt of pervious query is null
+INSERT INTO avas(sender_id, ava, comment_of) 
+VALUE (userID('mahdi79'), 'alli shode', '7');
 
-INSERT INTO comments 
-VALUE (
-	(SELECT id FROM avas ORDER BY write_date DESC LIMIT 1),
-    '2'
-);
+
 
 
 
