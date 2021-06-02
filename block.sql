@@ -2,6 +2,12 @@
 
 
 
+-- check that kasra80 has blocked mahdi79 yet or not
+SELECT * FROM blocked
+WHERE user1 = userID('kasra80') AND user2 = userID('mahdi79');
+
+
+
 -- kasra80 block mahdi79
 INSERT INTO blocked
 VALUES
@@ -19,4 +25,5 @@ DELETE FROM follow
 WHERE user2 = userID('mahdi79') and user1 = userID('kasra80');
 
 
+	
 	
