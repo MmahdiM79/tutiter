@@ -1,6 +1,7 @@
 
 
 
+-- am80 wants to see the users that liked ava with id 3
 
 SELECT * FROM blocked 
 WHERE user1 = avaSenderID(3) AND user2 = userID('am80');
