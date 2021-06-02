@@ -88,6 +88,8 @@ VALUES
 
 
 
+
+
 INSERT INTO follow
 VALUES
 	('1', '2'),
@@ -102,6 +104,19 @@ VALUES
     ('4', '5'),
     ('5', '4')
 ;
+
+
+
+
+
+INSERT INTO blocked 
+VALUES 
+    ('1', '3'),
+    ('3', '1'),
+    ('2', '4'),
+    ('4', '2')
+;
+
 
 
 
