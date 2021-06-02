@@ -8,27 +8,27 @@ INSERT INTO users (
     bio
 )
 VALUES 
-     ('mahdi79', '1234', 
+     ('mahdi79', SHA1('1234'), 
      'mahdi', 'malmasi', 
      '2000-01-01', '2020-01-01',
      'learning sql')
      ,
-     ('ae2079', '4231', 
+     ('ae2079', SHA1('4231'), 
      'ali', 'ebrahimi', 
      '2001-01-01', '2021-01-01',
      DEFAULT)
      ,
-     ('am80', '4321', 
+     ('am80', SHA1('4321'), 
      'amir', 'morteza zadeh', 
      '2001-05-23', '2019-06-05',
      DEFAULT)
      ,
-     ('alisaz', '9876', 
+     ('alisaz', SHA1('9876'), 
      'alireza', 'mohseni', 
      '2001-11-10', '2018-01-01',
      'song producer')
      ,
-     ('nvdmsv', '6789', 
+     ('nvdmsv', SHA1('6789'), 
      'navid', 'musavi zadeh', 
      '2000-01-01', '2020-01-01',
      'giutarist')
