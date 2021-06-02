@@ -7,7 +7,7 @@ RETURNS INT
 DETERMINISTIC
 
 BEGIN
-   RETURN (SELECT id FROM hashtags WHERE username = hashtag);
+   RETURN (SELECT id FROM hashtags h WHERE h.hashtag = hashtag);
 END; 
 
 
