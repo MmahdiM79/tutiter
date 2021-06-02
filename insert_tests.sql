@@ -145,57 +145,17 @@ VALUES
 
 
 
-
-INSERT INTO avas(sender_id, ava) VALUE ('1', 'are khayli :(');
-INSERT INTO comments 
-VALUE (
-	(SELECT id FROM avas ORDER BY write_date DESC LIMIT 1),
-    '3'
-);
-INSERT INTO avas(sender_id, ava) VALUE ('2', 'are be khoda');
-INSERT INTO comments 
-VALUE (
-	(SELECT id FROM avas ORDER BY write_date DESC LIMIT 1),
-    '4'
-);
-INSERT INTO avas(sender_id, ava) VALUE ('3', 'alii bud');
-INSERT INTO comments 
-VALUE (
-	(SELECT id FROM avas ORDER BY write_date DESC LIMIT 1),
-    '7'
-);
-INSERT INTO avas(sender_id, ava) VALUE ('4', 'ay baba shans nadari');
-INSERT INTO comments 
-VALUE (
-	(SELECT id FROM avas ORDER BY write_date DESC LIMIT 1),
-    '8'
-);
-INSERT INTO avas(sender_id, ava) VALUE ('5', 'nice');
-INSERT INTO comments 
-VALUE (
-	(SELECT id FROM avas ORDER BY write_date DESC LIMIT 1),
-    '7'
-);
-INSERT INTO avas(sender_id, ava) VALUE ('1', 'are manam daram divune misham');
-INSERT INTO comments 
-VALUE (
-	(SELECT id FROM avas ORDER BY write_date DESC LIMIT 1),
-    '9'
-);
-INSERT INTO avas(sender_id, ava) VALUE ('2', 'chi ajab *_*');
-INSERT INTO comments 
-VALUE (
-	(SELECT id FROM avas ORDER BY write_date DESC LIMIT 1),
-    '5'
-);
-INSERT INTO avas(sender_id, ava) VALUE ('3', 'shans nadari');
-INSERT INTO comments 
-VALUE (
-	(SELECT id FROM avas ORDER BY write_date DESC LIMIT 1),
-    '8'
-);
-
-
+INSERT INTO avas(sender_id, ava, comment_of)
+VALUES
+	('1', 'are khayli :(', '3'),
+    ('2', 'are be khoda', '4'),
+    ('3', 'alii bud', '7'),
+    ('4', 'ay baba shans nadari', '8'),
+    ('5', 'nice', '7'),
+    ('1', 'are manam daram divune misham', '9'),
+    ('2', 'chi ajab *_*', '5'),
+    ('3', 'shans nadari', '8')
+;
 
 
 
