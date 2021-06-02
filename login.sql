@@ -5,7 +5,7 @@
 -- we dont have any user with this username
 SELECT password
 FROM users
-WHERE username = 'kasra80';
+WHERE username = 'kasra80' AND  password = SHA1('4567');
 
 
 
