@@ -15,7 +15,9 @@ JOIN follow f
 JOIN blocked b
 	ON a.sender_id = b.user1
     
-WHERE f.user1 = userID('mahdi79') AND b.user2 != userID('mahdi79')
+WHERE f.user1 = userID('mahdi79') AND 
+	  b.user2 != userID('mahdi79') AND
+      a.comment_of IS NULL
 
 ORDER BY write_date DESC;
 
