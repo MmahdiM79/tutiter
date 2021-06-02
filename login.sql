@@ -3,7 +3,7 @@
 -- get the password of given username
 -- if get an empty column we find out that 
 -- we dont have any user with this username
-SELECT password
+SELECT *
 FROM users
 WHERE username = 'kasra80' AND  password = SHA1('4567');
 
