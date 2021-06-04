@@ -16,17 +16,15 @@ WHERE user1 = userID('alisaz') and user2 = userID('am80');
 
 
 -- get comments 
-SELECT DISTINCT userNAME(a2.sender_id) as sender, a2.ava, a2.write_date
+SELECT DISTINCT userNAME(a.sender_id) as sender, a.ava, a.write_date
 
-FROM avas a1
-JOIN avas a2
-	ON a1.id = a2.comment_of
+FROM avas a
 LEFT OUTER JOIN blocked b
-	ON b.user1 = a2.sender_id
+	ON b.user1 = a.sender_id
     
-WHERE a2.comment_of = '7' AND (b.user2 != userID('am80') OR b.user2 IS NULL)
+WHERE a.comment_of = '7' AND (b.user2 != userID('am80') OR b.user2 IS NULL)
 
-ORDER BY a2.write_date
+ORDER BY a.write_date
     
 
 
