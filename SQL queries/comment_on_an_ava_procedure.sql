@@ -25,6 +25,8 @@ BEGIN
     -- check that sender of given ava id have blocked 
     -- the doer of this procedure or not
     IF @doer IN (SELECT user2 FROM blocked WHERE user1 = avaSenderID(ava_id))
+        OR 
+        avaSenderID(ava_id) IN (SELECT user2 FROM blocked WHERE user1 = @doer)
     THEN
         SELECT 'the sender of this ava have blocked you!' as `status`;
         SELECT FALSE INTO res;
