@@ -1,0 +1,20 @@
+
+
+
+
+DELIMITER $$
+
+CREATE FUNCTION usernameEXIST(`username` VARCHAR(20)) 
+RETURNS BOOL
+DETERMINISTIC
+
+BEGIN
+	IF username IN (SELECT users.username FROM users)
+    THEN
+		RETURN TRUE;
+	ELSE
+		RETURN FALSE;
+	END IF;
+END; 
+
+
