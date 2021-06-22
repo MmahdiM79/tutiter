@@ -20,7 +20,7 @@ BEGIN
 
 
 	-- check that sender of given ava have block the doer or not
-    IF doer IN (SELECT user2 FROM blocked WHERE user1 = avaSenderID(ava_id))
+    IF @doer IN (SELECT user2 FROM blocked WHERE user1 = avaSenderID(ava_id))
     THEN
 		SELECT 'sender of given ava have blocked you!' as `status`;
         SELECT FALSE INTO res;
@@ -33,7 +33,7 @@ BEGIN
 	FROM avas a
 	LEFT OUTER JOIN blocked b
 		ON b.user1 = a.sender_id
-	WHERE a.comment_of = ava_id AND (b.user2 != doer OR b.user2 IS NULL)
+	WHERE a.comment_of = ava_id AND (b.user2 != @doer OR b.user2 IS NULL)
 	ORDER BY a.write_date;
     
     
