@@ -12,14 +12,17 @@ BEGIN
 
 
     -- check doer following list
-    IF (SELECT user2 FROM follow WHERE user1 = @doer) IS NULL 
+    IF (SELECT count(user2) FROM follow WHERE user1 = @doer) = 0
     THEN
         SELECT 'you have not followed any user yet!' as `status`;
         SELECT FALSE INTO res;
-        LEAVE follow_user_scope;
+        LEAVE avas_of_following;
     END IF;
 
 
+	-- set resualt
+	SELECT TRUE INTO res;
+    
     -- show avas of users
     SELECT userNAME(sender_id) as sender, ava, write_date
 
