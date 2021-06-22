@@ -25,15 +25,13 @@ BEGIN
     
     -- show avas of users
     SELECT userNAME(sender_id) as sender, ava, write_date
-
     FROM avas a
     JOIN follow f
-        ON f.user2 = a.sender_id
-        
+        ON f.user2 = a.sender_id 
     WHERE f.user1 = @doer AND
         a.comment_of IS NULL
-
     ORDER BY write_date DESC;
+    
 END;
 
 
