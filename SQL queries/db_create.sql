@@ -141,6 +141,22 @@ CREATE TABLE `signupLog` (
     `user_id` INT NOT NULL,
     `date_time` DATETIME NOT NULL DEFAULT (now()),
 
+
     PRIMARY KEY(`user_id`),
     FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)
-)
+);
+
+
+
+
+-- create avas log table
+CREATE TABLE `avasLog` (
+    `sender_id` INT NOT NULL,
+    `ava_id` INT NOT  NULL,
+    `date_time` DATETIME NOT NULL DEFAULT (now()),
+
+
+    PRIMARY KEY(`sender_id`, `ava_id`),
+    FOREIGN KEY (`sender_id`) REFERENCES `users`(`id`),
+    FOREIGN KEY (`ava_id`) REFERENCES `avas`(`id`)
+);
