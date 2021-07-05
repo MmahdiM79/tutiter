@@ -29,6 +29,11 @@ BEGIN
     END IF;
 
 
+
+
+    -- set resualt
+    SELECT TRUE INTO res;
+    
 	-- show the users that likes the give ava id
     SELECT userNAME(l.user_id) as liker
     FROM likes l
