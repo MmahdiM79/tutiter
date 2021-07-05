@@ -132,3 +132,15 @@ CREATE TABLE `login_records` (
     
     FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 );
+
+
+
+
+-- create signup log table
+CREATE TABLE `signupLog` (
+    `user_id` INT NOT NULL,
+    `date_time` DATETIME NOT NULL DEFAULT (now()),
+
+    PRIMARY KEY(`user_id`),
+    FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)
+)
