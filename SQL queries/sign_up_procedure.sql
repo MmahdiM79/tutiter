@@ -15,7 +15,7 @@ CREATE PROCEDURE `sign_up`(IN `username` VARCHAR(20),
 BEGIN
 
     -- check username
-    IF username IN (SELECT u.username FROM users u)
+    IF usernameEXIST(username)
     THEN
         SELECT 'this username is already taken!' as `status`;
         SELECT FALSE INTO res;
