@@ -26,7 +26,7 @@ BEGIN
 
     -- create account
     INSERT INTO users
-    VALUE (username, SHA1(password), Fname, Lname, birth_day, DEFAULT, DEFAULT);
+    VALUE (DEFAULT, username, SHA1(password), Fname, Lname, birth_day, DEFAULT, DEFAULT);
 
     -- set resualt
     SELECT 'your account created successfully!' as `status`;
