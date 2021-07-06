@@ -1,0 +1,13 @@
+
+
+
+DELIMITER //
+
+CREATE TRIGGER `sign_up_log` AFTER INSERT 
+ON users FOR EACH ROW
+BEGIN
+    INSERT INTO signupLog VALUES (NEW.id, DEFAULT);
+END;
+
+
+
