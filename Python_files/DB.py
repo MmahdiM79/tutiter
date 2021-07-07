@@ -135,6 +135,14 @@ class DB(object):
         self.__procedure('most_liked_avas')
         return self.__status()
 
+
+
+
+    def number_of_likes(self, ava_id: int) -> tuple:
+        ''' output: (bool(res), list(status) '''
+
+        return (self.__procedure('number_of_likes', [ava_id]), self.__status())
+
         
 
 
