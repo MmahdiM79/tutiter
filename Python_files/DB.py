@@ -71,7 +71,7 @@ class DB(object):
 
 
 
-    def block_user(self, username: str) -> tuple:
+    def block(self, username: str) -> tuple:
         ''' output: (bool(res), list(status) '''
 
         return (self.__procedure('block_user', [username]), self.__status())
@@ -95,10 +95,19 @@ class DB(object):
 
 
 
-    def follow_user(self, username: str) -> tuple:
+    def follow(self, username: str) -> tuple:
         ''' output: (bool(res), list(status) '''
 
         return (self.__procedure('follow_user', [username]), self.__status())
+
+
+
+
+    def unfollow(self, username: str) -> tuple:
+        ''' output: (bool(res), list(status) '''
+
+        return (self.__procedure('unfollow', [username]), self.__status())
+
 
 
 
