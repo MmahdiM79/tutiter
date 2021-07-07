@@ -107,6 +107,15 @@ class DB(object):
 
         return (self.__procedure('like_ava', [ava_id]), self.__status())
 
+
+
+
+    def login_records(self) -> list:
+        ''' output: list of login records '''
+
+        self.__procedure('login_records')
+        return self.__status()
+
         
 
 
@@ -144,9 +153,15 @@ class DB(object):
                 args.append(0)
         
 
-        res = self.cursor.callproc(name, args)[len(args)-1]
+        if args is not None:
+            res = self.cursor.callproc(name, args)[len(args)-1]
+        else:
+            res = True
+            self.cursor.callproc(name)
+
+            
         self.__commit()
-        return res
+        return bool(res)
 
 
 
