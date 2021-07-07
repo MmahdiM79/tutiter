@@ -28,14 +28,7 @@ class DB(object):
     def login(self, username: str, password: str) -> tuple:
         ''' output format:  (bool(res), list(status)) '''
 
-        res = self.__procedure('login', [username, password])
-
-        status = []
-        for result in self.cursor.stored_results():
-            status.append(result.fetchall())
-
-        return (res, status)
-
+        return (self.__procedure('login', [username, password]), self.__status())
 
 
 
@@ -81,6 +74,8 @@ class DB(object):
 
 
     def __status(self) -> list:
+        ''' read status str from database '''
+        
         status = []
         for result in self.cursor.stored_results():
             status.append(result.fetchall())
