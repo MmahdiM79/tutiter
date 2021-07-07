@@ -1,3 +1,4 @@
+import re
 import mysql.connector as sql
 
 
@@ -116,6 +117,15 @@ class DB(object):
         self.__procedure('login_records')
         return self.__status()
 
+
+
+
+    def messages_list(self) -> list:
+        ''' output: list of messages '''
+
+        self.__procedure('messages_list')
+        return self.__status()
+
         
 
 
@@ -159,7 +169,7 @@ class DB(object):
             res = True
             self.cursor.callproc(name)
 
-            
+
         self.__commit()
         return bool(res)
 
