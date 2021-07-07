@@ -151,6 +151,15 @@ class DB(object):
 
         return (self.__procedure('post_ava', [ava]), self.__status())
 
+
+
+
+    def send_comment(self, comment: str, ava_id: int) -> tuple:
+        ''' output: (bool(res), list(status) '''
+
+        return (self.__procedure('send_comment', [comment, ava_id]), self.__status())
+
+
         
 
 
