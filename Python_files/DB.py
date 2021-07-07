@@ -1,11 +1,13 @@
-import re
 import mysql.connector as sql
 
 
 
 
 class DB(object):
-
+    '''
+        this class designed for tutiter database\n
+        make sure you know how to use its methods
+    '''
 
     def __init__(self) -> None:
         '''
@@ -44,10 +46,7 @@ class DB(object):
 
 
     def avas_of_following(self) -> tuple:
-        ''' output:\n 
-                \tres: False if doer following list is empty otherwise true\n
-                \tstatus: a table or error message
-        '''
+        ''' output: (bool(res), list(status | table(sender, ava, write_date))'''
 
         return (self.__procedure('avas_of_following'), self.__status())
 
@@ -55,7 +54,10 @@ class DB(object):
 
 
     def avas_of_hashtag(self, hashtag: str) -> list:
-        ''' output: avas of given hashtag '''
+        ''' 
+            output: avas of given hashtag as list\n
+            \ttable(sender, ava, write_date)
+        '''
 
         self.__procedure('avas_of_hashtag', [hashtag])
         return self.__status()
@@ -64,7 +66,7 @@ class DB(object):
 
 
     def avas_of_user(self, username: str) -> tuple:
-        ''' output: (bool(res), list(status) '''
+        ''' output: (bool(res), list(status | table(ava, write_date)) '''
 
         return (self.__procedure('avas_of_user', [username]), self.__status())
 
@@ -88,7 +90,7 @@ class DB(object):
 
 
     def comments_of_ava(self, ava_id: int) -> tuple:
-        ''' output: (bool(res), list(status) '''
+        ''' output: (bool(res), list(status | table(sender, ava, write_date)) '''
 
         return (self.__procedure('comments_of_ava', [ava_id]), self.__status())
 
@@ -112,7 +114,7 @@ class DB(object):
 
 
     def get_messages(self, username: str) -> tuple:
-        ''' output: (bool(res), list(status) '''
+        ''' output: (bool(res), list(status | table(message, related_ava, sent_date)) '''
 
         return (self.__procedure('get_messages', [username]), self.__status())
 
@@ -128,7 +130,10 @@ class DB(object):
 
 
     def login_records(self) -> list:
-        ''' output: list of login records '''
+        ''' 
+            output: login records as list\n
+            \ttable(date_time)
+        '''
 
         self.__procedure('login_records')
         return self.__status()
@@ -137,7 +142,10 @@ class DB(object):
 
 
     def messages_list(self) -> list:
-        ''' output: list of messages '''
+        ''' 
+            output: messages from other users as list\n
+            \ttable(username, last_message_date)
+        '''
 
         self.__procedure('messages_list')
         return self.__status()
@@ -146,7 +154,10 @@ class DB(object):
 
 
     def most_liked_avas(self) -> list:
-        ''' output: most liked avas as list'''
+        ''' 
+            output: most liked avas as list
+            \ttable(sender, ava, n_likes)
+        '''
 
         self.__procedure('most_liked_avas')
         return self.__status()
@@ -155,7 +166,8 @@ class DB(object):
 
 
     def number_of_likes(self, ava_id: int) -> tuple:
-        ''' output: (bool(res), list(status) '''
+        ''' output: (bool(res), list(status | row(ava, n_likes)) '''
+
 
         return (self.__procedure('number_of_likes', [ava_id]), self.__status())
 
@@ -187,7 +199,7 @@ class DB(object):
 
 
     def user_avas(self) -> tuple:
-        ''' output: (bool(res), list(status) '''
+        ''' output: (bool(res), list(status | table(ava, write_date)) '''
 
         return (self.__procedure('user_avas'), self.__status())
 
@@ -195,7 +207,7 @@ class DB(object):
     
 
     def list_likers(self, ava_id: int) -> tuple:
-        ''' output: (bool(res), list(status) '''
+        ''' output: (bool(res), list(status | column(liker)) '''
 
         return (self.__procedure('users_that_likes_an_ava', [ava_id]), self.__status())
 
@@ -221,7 +233,7 @@ class DB(object):
 
 
     def __commit(self) -> None:
-        ''' apply changes to database'''
+        ''' apply changes to database '''
         self.connection.commit()
 
 
@@ -251,7 +263,7 @@ class DB(object):
 
 
     def __status(self) -> list:
-        ''' read status str from database '''
+        ''' read status or output table from last database called procedure '''
 
         status = []
         for result in self.cursor.stored_results():
