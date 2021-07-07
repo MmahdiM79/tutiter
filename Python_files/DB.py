@@ -78,6 +78,15 @@ class DB(object):
 
 
 
+    def comments_of_ava(self, ava_id: int) -> tuple:
+        ''' output: (bool(res), list(status) '''
+
+        return (self.__procedure('comments_of_ava', [ava_id]), self.__status())
+        
+
+
+
+
     def close(self) -> None:
         ''' at the end of program call this function '''
 
