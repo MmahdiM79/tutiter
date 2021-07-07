@@ -28,6 +28,9 @@ BEGIN
 	END IF;
     
     
+    -- set resualt
+    SELECT TRUE INTO res;
+    
     -- show the comments of given ava
     SELECT DISTINCT userNAME(a.sender_id) as sender, a.ava, a.write_date
 	FROM avas a
