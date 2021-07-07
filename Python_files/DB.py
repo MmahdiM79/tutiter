@@ -91,13 +91,21 @@ class DB(object):
 
         return (self.__procedure('follow_user', [username]), self.__status())
 
-        
+
 
 
     def get_messages(self, username: str) -> tuple:
         ''' output: (bool(res), list(status) '''
 
         return (self.__procedure('get_messages', [username]), self.__status())
+
+
+
+
+    def like_ava(self, ava_id: int) -> tuple:
+        ''' output: (bool(res), list(status) '''
+
+        return (self.__procedure('like_ava', [ava_id]), self.__status())
 
         
 
