@@ -73,11 +73,19 @@ class DB(object):
     def __procedure(self, name: str, args: list = None) -> bool:
         ''' call procedure from database '''
 
+        no_res_output = ['avas_of_hashtag', 'login_records', 'messages_list', 'most_liked_avas']
+        
         if args is not None and len(args) > 0:
             args.append(0)
             res = self.cursor.callproc(name, args)[len(args)-1]
+
+        elif name not in no_res_output:
+            args = [0]
+            res = self.cursor.callproc(name, args)
+
         else:
             res = self.cursor.callproc(name)
+
 
         self.__commit()
         return res
