@@ -29,7 +29,6 @@ class DB(object):
         ''' output format:  (bool(res), list(status)) '''
 
         res = self.__procedure('login', [username, password])
-        self.__commit()
 
         status = []
         for result in self.cursor.stored_results():
@@ -66,12 +65,19 @@ class DB(object):
         self.connection.commit()
 
 
+
     def __procedure(self, name: str, args: list = None) -> bool:
+        ''' call procedure from database '''
+
         if args is not None and len(args) > 0:
             args.append(0)
-            return self.cursor.callproc(name, args)[len(args)-1]
+            res = self.cursor.callproc(name, args)[len(args)-1]
         else:
-            return self.cursor.callproc(name)
+            res = self.cursor.callproc(name)
+
+        self.__commit()
+        return res
+
 
 
     def __status(self) -> list:
