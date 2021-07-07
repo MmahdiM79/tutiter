@@ -94,6 +94,14 @@ class DB(object):
         
 
 
+    def get_messages(self, username: str) -> tuple:
+        ''' output: (bool(res), list(status) '''
+
+        return (self.__procedure('get_messages', [username]), self.__status())
+
+        
+
+
 
 
     def close(self) -> None:
