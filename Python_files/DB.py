@@ -66,6 +66,9 @@ class DB(object):
         self.connection.commit()
 
 
-    def __procedure(self, name: str, args: tuple = None) -> None:
-        self.cursor.callproc(name, args)
+    def __procedure(self, name: str, args: tuple = None) -> bool:
+        return self.cursor.callproc(name, args)[len(args)]
+
+
+        
         
