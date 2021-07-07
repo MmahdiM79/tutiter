@@ -9,7 +9,7 @@ CREATE PROCEDURE `get_messages`(IN `username` VARCHAR(20), OUT res BOOL)
 BEGIN
 
     -- check give username
-    IF userID(username) NOT IN (SELECT id FROM users)
+    IF userID(username) NOT IN (SELECT id FROM users) OR userID(username) IS NULL
     THEN
         SELECT 'given username is invalid!' as `status`;
         SELECT FALSE INTO res;
@@ -18,6 +18,16 @@ BEGIN
 
 
     SET @`doer` = getDOERid(); -- find the doer of this procedure
+
+
+    -- compare username_id with doer
+    IF @doer = userID(username)
+    THEN
+        SELECT 'you can not block yourself :) !' as `status`;
+        SELECT FALSE INTO res;
+		    LEAVE scope;
+    END IF;
+
 
 
     -- set resualt
