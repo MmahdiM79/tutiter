@@ -82,6 +82,15 @@ class DB(object):
         ''' output: (bool(res), list(status) '''
 
         return (self.__procedure('comments_of_ava', [ava_id]), self.__status())
+
+
+
+
+    def follow_user(self, username: str) -> tuple:
+        ''' output: (bool(res), list(status) '''
+
+        return (self.__procedure('follow_user', [username]), self.__status())
+
         
 
 
