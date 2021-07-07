@@ -73,6 +73,9 @@ class DB(object):
 
 
 
+
+
+
     def __commit(self) -> None:
         ''' apply changes to database'''
         self.connection.commit()
@@ -90,12 +93,8 @@ class DB(object):
             else:
                 args.append(0)
         
-            res = self.cursor.callproc(name, args)[len(args)-1]
-        
-        else:
-            res = self.cursor.callproc(name, args)
 
-        
+        res = self.cursor.callproc(name, args)[len(args)-1]
         self.__commit()
         return res
 
