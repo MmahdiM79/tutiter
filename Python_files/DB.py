@@ -126,6 +126,15 @@ class DB(object):
         self.__procedure('messages_list')
         return self.__status()
 
+
+
+
+    def most_liked_avas(self) -> list:
+        ''' output: most liked avas as list'''
+
+        self.__procedure('most_liked_avas')
+        return self.__status()
+
         
 
 
