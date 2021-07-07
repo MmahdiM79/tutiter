@@ -53,6 +53,15 @@ class DB(object):
 
 
 
+    def avas_of_hashtag(self, hashtag: str) -> list:
+        ''' output: avas of given hashtag '''
+
+        self.__procedure('avas_of_hashtag', [hashtag])
+        return self.__status()
+
+
+
+
     def close(self) -> None:
         ''' at the end of program call this function '''
 
@@ -74,19 +83,19 @@ class DB(object):
         ''' call procedure from database '''
 
         no_res_output = ['avas_of_hashtag', 'login_records', 'messages_list', 'most_liked_avas']
-        
-        if args is not None and len(args) > 0:
-            args.append(0)
-            res = self.cursor.callproc(name, args)[len(args)-1]
 
-        elif name not in no_res_output:
-            args = [0]
+        if name not in no_res_output:
+            if args is None:
+                args = [0]
+            else:
+                args.append(0)
+        
+            res = self.cursor.callproc(name, args)[len(args)-1]
+        
+        else:
             res = self.cursor.callproc(name, args)
 
-        else:
-            res = self.cursor.callproc(name)
-
-
+        
         self.__commit()
         return res
 
