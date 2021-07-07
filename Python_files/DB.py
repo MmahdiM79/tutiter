@@ -74,5 +74,12 @@ class DB(object):
             return self.cursor.callproc(name)
 
 
+    def __status(self) -> list:
+        status = []
+        for result in self.cursor.stored_results():
+            status.append(result.fetchall())
+
+        return status
+
 
         
