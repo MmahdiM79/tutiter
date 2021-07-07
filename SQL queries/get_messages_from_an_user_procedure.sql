@@ -23,7 +23,7 @@ BEGIN
     -- compare username_id with doer
     IF @doer = userID(username)
     THEN
-        SELECT 'you want to se messages from yourself? :) !' as `status`;
+        SELECT 'you want to see messages from yourself? :) !' as `status`;
         SELECT FALSE INTO res;
 		    LEAVE scope;
     END IF;
