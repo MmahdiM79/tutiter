@@ -79,6 +79,14 @@ class DB(object):
 
 
 
+    def unblock(self, username: str) -> tuple:
+        ''' output: (bool(res), list(status) '''
+
+        return (self.__procedure('unblock', [username]), self.__status())
+
+
+
+
     def comments_of_ava(self, ava_id: int) -> tuple:
         ''' output: (bool(res), list(status) '''
 
@@ -158,6 +166,14 @@ class DB(object):
         ''' output: (bool(res), list(status) '''
 
         return (self.__procedure('send_comment', [comment, ava_id]), self.__status())
+
+
+
+
+    def send_message(self, message: str, receiver_username: str, ava_id: int) -> tuple:
+        ''' output: (bool(res), list(status) '''
+
+        return (self.__procedure('send_message', [message, receiver_username, ava_id]), self.__status())
 
 
         
