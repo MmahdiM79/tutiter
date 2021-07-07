@@ -111,7 +111,6 @@ class DB(object):
 
 
 
-
     def get_messages(self, username: str) -> tuple:
         ''' output: (bool(res), list(status) '''
 
@@ -183,6 +182,14 @@ class DB(object):
         ''' output: (bool(res), list(status) '''
 
         return (self.__procedure('send_message', [message, receiver_username, ava_id]), self.__status())
+
+
+
+
+    def user_avas(self) -> tuple:
+        ''' output: (bool(res), list(status) '''
+
+        return (self.__procedure('user_avas'), self.__status())
 
 
         
