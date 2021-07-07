@@ -14,8 +14,13 @@ class DB(object):
             \tuser: root, \n
             \tpassword: ********
         '''
+
         self.connection = sql.connect(host='localhost', database='tutiter', user='root', password='12345')
         self.cursor = self.connection.cursor()
+
+
+
+
 
 
 
@@ -35,6 +40,16 @@ class DB(object):
 
 
 
+
+    def sign_up(self, username: str, password: str, Fname: str, Lname: str, birth_day: str) -> tuple:
+        ''' output format:  (bool(res), list(status)) '''
+
+        
+
+
+
+
+
     def close(self) -> None:
         ''' at the end of program call this function '''
 
@@ -50,4 +65,7 @@ class DB(object):
         ''' apply changes to database'''
         self.connection.commit()
 
+
+    def __procedure(self, name: str, args: tuple = None) -> None:
+        self.cursor.callproc(name, args)
         
