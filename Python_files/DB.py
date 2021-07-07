@@ -70,6 +70,14 @@ class DB(object):
 
 
 
+    def block_user(self, username: str) -> tuple:
+        ''' output: (bool(res), list(status) '''
+
+        return (self.__procedure('block_user', [username]), self.__status())
+
+
+
+
     def close(self) -> None:
         ''' at the end of program call this function '''
 
