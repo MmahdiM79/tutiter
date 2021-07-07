@@ -42,6 +42,14 @@ class DB(object):
         
 
 
+    def avas_of_following(self) -> tuple:
+        ''' output:\n 
+                \tres: False if doer following list is empty otherwise true\n
+                \tstatus: a table or error message
+        '''
+
+        return (self.__procedure('avas_of_following'), self.__status())
+
 
 
 
