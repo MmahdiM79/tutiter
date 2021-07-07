@@ -62,6 +62,14 @@ class DB(object):
 
 
 
+    def avas_of_user(self, username: str) -> tuple:
+        ''' output: (bool(res), list(status) '''
+
+        return (self.__procedure('avas_of_user', [username]), self.__status())
+
+
+
+
     def close(self) -> None:
         ''' at the end of program call this function '''
 
