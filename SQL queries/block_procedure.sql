@@ -16,8 +16,18 @@ BEGIN
 		LEAVE block_user_scope;
 	END IF;
 
+
     SET @`doer` = getDOERid(); -- find the doer of this procedure
     SET @`username_id` = userID(username); -- find the user id of given username
+
+
+    -- compare username_id with doer
+    IF @doer = @username_id
+    THEN
+        SELECT 'you can not block yourself :) !' as `status`;
+        SELECT FALSE INTO res;
+		LEAVE block_user_scope;
+    END IF;
 
 
 	-- check that doer of this procedure has blocked given username or not
