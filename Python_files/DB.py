@@ -28,7 +28,7 @@ class DB(object):
     def login(self, username: str, password: str) -> tuple:
         ''' output format:  (bool(res), list(status)) '''
 
-        res = self.cursor.callproc('login', (username, password, 0))[2]
+        res = self.__procedure('login', [username, password])
         self.__commit()
 
         status = []
@@ -67,9 +67,11 @@ class DB(object):
 
 
     def __procedure(self, name: str, args: list = None) -> bool:
-        if len(args) > 0:
+        if args is not None and len(args) > 0:
             args.append(0)
-        return self.cursor.callproc(name, args)[len(args)]
+            return self.cursor.callproc(name, args)[len(args)-1]
+        else:
+            return self.cursor.callproc(name)
 
 
 
