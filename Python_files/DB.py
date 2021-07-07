@@ -66,9 +66,11 @@ class DB(object):
         self.connection.commit()
 
 
-    def __procedure(self, name: str, args: tuple = None) -> bool:
+    def __procedure(self, name: str, args: list = None) -> bool:
+        if len(args) > 0:
+            args.append(0)
         return self.cursor.callproc(name, args)[len(args)]
 
 
-        
+
         
