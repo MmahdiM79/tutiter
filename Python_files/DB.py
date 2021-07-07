@@ -36,6 +36,9 @@ class DB(object):
     def sign_up(self, username: str, password: str, Fname: str, Lname: str, birth_day: str) -> tuple:
         ''' output format:  (bool(res), list(status)) '''
 
+        args = list(username, password, Fname, Lname, birth_day)
+        return (self.__procedure('sign_up', args), self.__status())
+
         
 
 
@@ -75,7 +78,7 @@ class DB(object):
 
     def __status(self) -> list:
         ''' read status str from database '''
-        
+
         status = []
         for result in self.cursor.stored_results():
             status.append(result.fetchall())
