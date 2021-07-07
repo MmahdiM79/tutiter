@@ -192,6 +192,15 @@ class DB(object):
         return (self.__procedure('user_avas'), self.__status())
 
 
+    
+
+    def list_likers(self, ava_id: int) -> tuple:
+        ''' output: (bool(res), list(status) '''
+
+        return (self.__procedure('users_that_likes_an_ava', [ava_id]), self.__status())
+
+
+
         
 
 
