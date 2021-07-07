@@ -143,6 +143,14 @@ class DB(object):
 
         return (self.__procedure('number_of_likes', [ava_id]), self.__status())
 
+
+
+
+    def post_ava(self, ava: str) -> tuple:
+        ''' output: (bool(res), list(status) '''
+
+        return (self.__procedure('post_ava', [ava]), self.__status())
+
         
 
 
