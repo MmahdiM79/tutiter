@@ -5,7 +5,7 @@
 DELIMITER //
 
 CREATE PROCEDURE `avas_of_following`(OUT res BOOL)
-`avas_of_following`:
+`scope`:
 BEGIN
 
     SET @`doer` = getDOERid(); -- find the doer of this procedure
@@ -16,7 +16,7 @@ BEGIN
     THEN
         SELECT 'you have not followed any user yet!' as `status`;
         SELECT FALSE INTO res;
-        LEAVE avas_of_following;
+        LEAVE scope;
     END IF;
 
 
@@ -24,7 +24,7 @@ BEGIN
 	SELECT TRUE INTO res;
     
     -- show avas of users
-    SELECT userNAME(sender_id) as sender, ava, write_date
+    SELECT a.id, userNAME(sender_id) as sender, ava, write_date
     FROM avas a
     JOIN follow f
         ON f.user2 = a.sender_id 
