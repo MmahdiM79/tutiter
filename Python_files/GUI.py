@@ -284,4 +284,28 @@ def show_avas(avas: list, number_of_columns: int) -> None:
 
 
     wait_enter()
+
+
+
+
+def post_an_ava() -> str:
+    ''' return user given ava ''' 
+
+    while True: 
+        reset()
+        back_option()
+
+        print('\n\n')
+        print('(hashtag format that we accepted: exactly 5 character, each character in (a, A, b, B, ..., z, Z))\n')
+        print('write your ava(len(max) = 256):  ', end='')
+
+        ava = input()
+        if check_back_option(ava):
+            return '<<<'
+
+        if len(ava) > 256:
+            wrong_input(which='ava')
+            continue
+
+        return ava
     
