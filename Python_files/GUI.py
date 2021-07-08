@@ -48,7 +48,7 @@ def wrong_input(which: str = None) -> None:
         print('\n\n\t\t\t    <<< your input is invalid >>>')
         print('\t\t\t      (press enter to continue)')
     else:
-        print(f'\n\n\t\t\t    <<< your {which} input is invalid >>>')
+        print(f'\n\n\t\t\t    <<< your \'{which}\' input is invalid >>>')
         print('\t\t\t        (press enter to continue)')
 
     input()
