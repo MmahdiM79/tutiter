@@ -57,6 +57,8 @@ def start() -> int:
     '''
 
     while (True):
+        reset()
+
         print('1: sign up')
         print('2: login\n')
 
@@ -64,6 +66,12 @@ def start() -> int:
 
         chosen = int(input())
         if chosen not in (1, 2):
+            wrong_input()
+            continue
+        
+        break
+
+    return chosen
 
 
 
