@@ -75,6 +75,14 @@ def back_option() -> None:
 
 
 
+def check_back_option(s: str) -> bool:
+    ''' returns s == '<<<' '''
+
+    return (s == '<<<')
+
+
+
+
 def start() -> int:
     ''' 
         ask user to login or sign up\n
