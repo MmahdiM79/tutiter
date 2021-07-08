@@ -26,7 +26,7 @@ BEGIN
 
 
     -- show user avas
-    SELECT ava, write_date
+    SELECT id, ava, write_date
     FROM avas
     WHERE sender_id = @doer AND comment_of IS NULL
     ORDER BY write_date DESC;
