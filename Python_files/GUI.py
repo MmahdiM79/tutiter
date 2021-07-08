@@ -44,8 +44,8 @@ def reset() -> None:
 def wrong_input() -> None:
     ''' say to user that given input is invalid '''
 
-    print('\n\n\t\t <<< your input is invalid >>>')
-    print('\t\t   (press enter to continue)')
+    print('\n\n\t\t\t    <<< your input is invalid >>>')
+    print('\t\t\t      (press enter to continue)')
     input()
 
 
