@@ -9,6 +9,8 @@ from GUI import *
 
 
 
+
+
 if __name__ == '__main__':
 
     # create an instance of database 
@@ -22,11 +24,10 @@ if __name__ == '__main__':
         if chosen == 1: # sign up
             while True:
                 details = sign_up()
-                if details == ():
+                if len(details) == 0:
                     break
 
-                report = db.sign_up(details[0], details[1], details[2], details[3], details[4] )
-                
+                report = db.sign_up(details[0], details[1], details[2], details[3], details[4])
                 show_status(report[1])
 
                 if not report[0]:
@@ -38,8 +39,18 @@ if __name__ == '__main__':
 
 
         elif chosen == 2: # login
-            username, password = login()
-            db.login(username, password)
+            while True:
+                details = login()
+                if len(details) == 0:
+                    break
+
+                report = db.login(details[0], details[1])
+                show_status(report[1])
+
+                if not report[0]:
+                    continue
+                else:
+                    break
 
 
         else: # exit the app
