@@ -102,39 +102,59 @@ def sign_up() -> tuple:
 
     while True:
         reset()
+        print('<enter \'<<<\' to go back>\n\n')
+
 
         print("username(len max = 20)       :  ", end='')
         username = input()
+        if username == '<<<':
+            return ()
+
         if len(username) > 20 or len(username) == 0:
             wrong_input(which='username')
             continue
 
         print("password(len max = 128)      :  ", end='')
         password = input()
+        if password == '<<<':
+            return ()
+
         if len(password) > 20 or len(password) == 0:
             wrong_input(which='password')
             continue
 
         print("first name(len max = 20)     :  ", end='')
         Fname = input()
+        if Fname == '<<<':
+            return ()
+
         if len(Fname) > 20 or len(Fname) == 0:
             wrong_input(which='first name')
             continue
 
         print("last name(len max = 20)      :  ", end='')
         Lname= input()
+        if Lname == '<<<':
+            return ()
+
         if len(Lname) > 20 or len(Lname) == 0:
             wrong_input(which='last name')
             continue
 
         print("year of your birthday        :  ", end='')
         year = input()
+        if year == '<<<':
+            return ()
+
         if len(year) != 4:
             wrong_input(which='year')
             continue
 
         print("month of your birthday(1-12) :  ", end='')
         month = input()
+        if month == '<<<':
+            return ()
+            
         month = '0'+month if len(month) == 1 else month
         
         if len(month) == 0 or int(month) > 12:
@@ -143,6 +163,9 @@ def sign_up() -> tuple:
 
         print("day of your birthday(1-31)   :  ", end='')
         day = input()
+        if day == '<<<':
+            return ()
+
         day = '0'+day if len(day) == 1 else day
 
         if int(day) > 31 or int(day) < 1 or (int(month) > 6 and int(day) == 31):
