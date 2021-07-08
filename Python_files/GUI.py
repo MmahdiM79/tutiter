@@ -1,4 +1,5 @@
 from os import system as sys
+import datetime
 
 
 
@@ -248,3 +249,24 @@ def panel() -> int:
             return int(chosen)
         else:
             wrong_input()
+
+
+
+
+def show_avas(avas: list, number_of_columns: int) -> None:
+    ''' display the given avas '''
+    reset()
+
+    avas = avas[0]
+
+    if number_of_columns == 3:
+        
+        for ava in avas:
+            print(f'>-- 💬  {ava[1]}')
+            print( '    |')
+            print(f'    ⟣-- (🗓  {ava[2]})')
+            print(f'    ⟣-- (🆔 {ava[0]})\n\n\n')
+
+    print('\t\t\t      (press enter to continue)')
+    input()
+    
