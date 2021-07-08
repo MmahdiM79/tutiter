@@ -41,11 +41,16 @@ def reset() -> None:
 
 
 
-def wrong_input() -> None:
+def wrong_input(which: str = None) -> None:
     ''' say to user that given input is invalid '''
 
-    print('\n\n\t\t\t    <<< your input is invalid >>>')
-    print('\t\t\t      (press enter to continue)')
+    if which is None:
+        print('\n\n\t\t\t    <<< your input is invalid >>>')
+        print('\t\t\t      (press enter to continue)')
+    else:
+        print(f'\n\n\t\t\t    <<< your {which} input is invalid >>>')
+        print('\t\t\t        (press enter to continue)')
+
     input()
 
 
