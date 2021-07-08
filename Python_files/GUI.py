@@ -56,6 +56,17 @@ def wrong_input(which: str = None) -> None:
 
 
 
+def show_status(status: str) -> None:
+    ''' show the result of database '''
+
+    reset()
+    print('\n\n\n\t\t    ', status, '\n')
+    print('\t\t\t      (press enter to continue)')
+    input()
+
+
+
+
 def start() -> int:
     ''' 
         ask user to login or sign up\n
