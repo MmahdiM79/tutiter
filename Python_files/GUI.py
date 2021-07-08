@@ -275,12 +275,19 @@ def show_avas(avas: list, number_of_columns: int) -> None:
     avas = avas[0]
 
     if number_of_columns == 3:
-        
         for ava in avas:
             print(f'>-- 💬  {ava[1]}')
             print( '    |')
             print(f'    ⟣-- (🗓  {ava[2]})')
             print(f'    ⟣-- (🆔 {ava[0]})\n\n\n')
+
+    if number_of_columns == 4:
+        for ava in avas:
+            print(f'👤{ava[1]} >-- 💬  {ava[2]}')
+            space = len(f'👤{ava[1]} ')*' '+' '
+            print(space, '    |', sep='')
+            print(space, f'    ⟣-- (🗓  {ava[3]})', sep='')
+            print(space, f'    ⟣-- (🆔 {ava[0]})\n\n\n', sep='')
 
 
     wait_enter()
