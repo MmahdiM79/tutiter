@@ -31,6 +31,15 @@ def tutiter_title() -> None:
 
 
 
+def wrong_input() -> None:
+    ''' say to user that given input is invalid '''
+
+    print('\n\n\t\t <<< your input is invalid >>>')
+    print('\t\t   (press enter to continue)')
+
+
+
+
 def start() -> int:
     ''' 
         ask user to login or sign up\n
@@ -45,7 +54,7 @@ def start() -> int:
 
         chosen = int(input())
         if chosen not in (1, 2):
-            
+
 
 
 
