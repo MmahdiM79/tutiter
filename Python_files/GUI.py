@@ -78,6 +78,38 @@ def start() -> int:
 
 
 
+def sign_up() -> tuple:
+    ''' 
+        get new user details for sign up\n
+        output: (username, password, Fname, Lname, birthday)
+    '''
+
+    while True:
+        reset()
+
+        print("username(len max = 20):  ", end='')
+        username = input()
+
+        print("password(len max = 128):  ", end='')
+        password = input()
+
+        print("first name(len max = 20):  ", end='')
+        Fname = input()
+
+        print("last name(len max = 20):  ", end='')
+        Lname= input()
+
+        print("birth day(len max = 20):  ", end='')
+        birthday= input()
+
+
+        break
+
+    return (username, password, Fname, Lname, birthday)
+
+
+
+
 
 
 def login() -> tuple:
