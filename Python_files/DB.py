@@ -39,7 +39,7 @@ class DB(object):
     def sign_up(self, username: str, password: str, Fname: str, Lname: str, birth_day: str) -> tuple:
         ''' output format:  (bool(res), list(status)) '''
 
-        args = list(username, password, Fname, Lname, birth_day)
+        args = [username, password, Fname, Lname, birth_day]
         return (self.__procedure('sign_up', args), self.__status())
 
         
