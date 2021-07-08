@@ -68,7 +68,7 @@ def show_status(status: str) -> None:
     ''' show the result of database '''
 
     reset()
-    print('\n\n\n\t\t    ', status, '\n')
+    print('\n\n\n\t\t    ⚠️ ', status[0][0][0], '\n')
     wait_enter()
 
 
@@ -270,6 +270,7 @@ def panel() -> int:
 def show_avas(avas: list, number_of_columns: int) -> None:
     ''' display the given avas '''
     reset()
+    print('\n\n')
 
     avas = avas[0]
 
