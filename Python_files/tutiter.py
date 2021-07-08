@@ -14,7 +14,7 @@ def tasks() -> None:
         # show user avas
         if which == 1: 
             report = db.user_avas()
-
+            print(report, ' ????')
             if not report[0]:
                 show_status(report[1])
             else:
@@ -64,9 +64,13 @@ if __name__ == '__main__':
 
 
         elif chosen == 2: # login
+
+            go_to_panel = True
+
             while True:
                 details = login()
                 if len(details) == 0:
+                    go_to_panel = False
                     break
 
                 report = db.login(details[0], details[1])
@@ -77,7 +81,8 @@ if __name__ == '__main__':
                 else:
                     break
 
-            tasks()
+            if go_to_panel:
+                tasks()
 
 
         else: # exit the app
