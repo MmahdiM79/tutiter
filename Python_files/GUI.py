@@ -31,6 +31,16 @@ def tutiter_title() -> None:
 
 
 
+def reset() -> None:
+    ''' reset terminal next method '''
+
+    clear()
+    gap()
+    tutiter_title()
+
+
+
+
 def wrong_input() -> None:
     ''' say to user that given input is invalid '''
 
