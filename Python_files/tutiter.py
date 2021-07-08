@@ -21,6 +21,23 @@ def tasks() -> None:
                 show_avas(report[1], 3)
 
 
+        # post an ava
+        if which == 2:
+            while True:
+                ava = post_an_ava()
+                if ava == '<<<':
+                    break
+
+                report = db.post_ava(ava)
+                show_status(report[1])
+
+                if report[0]:
+                    break
+                
+
+
+
+
         # exit the app
         if which == 13:
             db.close()
