@@ -67,6 +67,14 @@ def show_status(status: str) -> None:
 
 
 
+def back_option() -> None:
+    ''' show back option to user '''
+
+    print('<enter \'<<<\' to go back>\n\n')
+
+
+
+
 def start() -> int:
     ''' 
         ask user to login or sign up\n
