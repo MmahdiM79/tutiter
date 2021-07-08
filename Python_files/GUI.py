@@ -118,12 +118,12 @@ def sign_up() -> tuple:
 
     while True:
         reset()
-        print('<enter \'<<<\' to go back>\n\n')
+        back_option()
 
 
         print("username(len max = 20)       :  ", end='')
         username = input()
-        if username == '<<<':
+        if check_back_option(username):
             return ()
 
         if len(username) > 20 or len(username) == 0:
@@ -132,7 +132,7 @@ def sign_up() -> tuple:
 
         print("password(len max = 128)      :  ", end='')
         password = input()
-        if password == '<<<':
+        if check_back_option(password):
             return ()
 
         if len(password) > 20 or len(password) == 0:
@@ -141,7 +141,7 @@ def sign_up() -> tuple:
 
         print("first name(len max = 20)     :  ", end='')
         Fname = input()
-        if Fname == '<<<':
+        if check_back_option(Fname):
             return ()
 
         if len(Fname) > 20 or len(Fname) == 0:
@@ -150,7 +150,7 @@ def sign_up() -> tuple:
 
         print("last name(len max = 20)      :  ", end='')
         Lname= input()
-        if Lname == '<<<':
+        if check_back_option(Lname):
             return ()
 
         if len(Lname) > 20 or len(Lname) == 0:
@@ -159,7 +159,7 @@ def sign_up() -> tuple:
 
         print("year of your birthday        :  ", end='')
         year = input()
-        if year == '<<<':
+        if check_back_option(year):
             return ()
 
         if len(year) != 4:
@@ -168,7 +168,7 @@ def sign_up() -> tuple:
 
         print("month of your birthday(1-12) :  ", end='')
         month = input()
-        if month == '<<<':
+        if check_back_option(month):
             return ()
             
         month = '0'+month if len(month) == 1 else month
@@ -179,7 +179,7 @@ def sign_up() -> tuple:
 
         print("day of your birthday(1-31)   :  ", end='')
         day = input()
-        if day == '<<<':
+        if check_back_option(day):
             return ()
 
         day = '0'+day if len(day) == 1 else day
