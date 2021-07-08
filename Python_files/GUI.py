@@ -22,12 +22,30 @@ def gap() -> None:
 
 
 
+
 def tutiter_title() -> None:
     ''' print Tutiter as title '''
     
     print('\t\t -~-~-~-~-~-~-~-~-~    Tutiter    ~-~-~-~-~-~-~-~-~-\n\n')
 
 
+
+
+def start() -> int:
+    ''' 
+        ask user to login or sign up\n
+        return user chosen option
+    '''
+
+    while (True):
+        print('1: sign up')
+        print('2: login\n')
+
+        print('>>> ', end='')
+
+        chosen = int(input())
+        if chosen not in (1, 2):
+            
 
 
 
