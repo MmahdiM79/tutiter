@@ -1,8 +1,11 @@
 from DB import DB
 from GUI import *
 
-# from Python_files.GUI import *
-# from Python_files.DB import DB
+try:
+    from Python_files.GUI import *
+    from Python_files.DB import DB
+except:
+    pass
 
 
 
@@ -33,10 +36,17 @@ def tasks() -> None:
 
                 if report[0]:
                     break
+
+
+        # avas of following users
+        if which == 3:
+            report = db.avas_of_following()
+
+            if report[0]:
+                show_avas(report[1], 4)
+            else:
+                show_status(report[1])
                 
-
-
-
 
         # exit the app
         if which == 13:
