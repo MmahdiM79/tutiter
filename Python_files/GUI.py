@@ -62,11 +62,12 @@ def start() -> int:
 
         print('1: sign up')
         print('2: login\n')
+        print('3: exit')
 
         print('>>> ', end='')
 
         chosen = int(input())
-        if chosen not in (1, 2):
+        if chosen not in (1, 2, 3):
             wrong_input()
             continue
         
