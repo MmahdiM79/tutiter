@@ -200,10 +200,21 @@ def sign_up() -> tuple:
 
 
 def login() -> tuple:
+    ''' get username and password and log in the user\n
+        return (username, password) '''
+
+    reset()
+    back_option()
+
     print('username: ', end='')
     user = input()
+    if check_back_option(user):
+        return ()
+
     print('password: ', end='')
     psswrd = input()
+    if check_back_option(psswrd):
+        return ()
 
     return (user, psswrd)
 
