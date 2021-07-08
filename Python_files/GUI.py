@@ -92,25 +92,57 @@ def sign_up() -> tuple:
     while True:
         reset()
 
-        print("username(len max = 20):  ", end='')
+        print("username(len max = 20)       :  ", end='')
         username = input()
+        if len(username) > 20 or len(username) == 0:
+            wrong_input(which='username')
+            continue
 
-        print("password(len max = 128):  ", end='')
+        print("password(len max = 128)      :  ", end='')
         password = input()
+        if len(password) > 20 or len(password) == 0:
+            wrong_input(which='password')
+            continue
 
-        print("first name(len max = 20):  ", end='')
+        print("first name(len max = 20)     :  ", end='')
         Fname = input()
+        if len(Fname) > 20 or len(Fname) == 0:
+            wrong_input(which='first name')
+            continue
 
-        print("last name(len max = 20):  ", end='')
+        print("last name(len max = 20)      :  ", end='')
         Lname= input()
+        if len(Lname) > 20 or len(Lname) == 0:
+            wrong_input(which='last name')
+            continue
 
-        print("birth day(len max = 20):  ", end='')
-        birthday= input()
+        print("year of your birthday        :  ", end='')
+        year = input()
+        if len(year) != 4:
+            wrong_input(which='year')
+            continue
 
+        print("month of your birthday(1-12) :  ", end='')
+        month = input()
+        month = '0'+month if len(month) == 1 else month
+        
+        if len(month) == 0 or int(month) > 12:
+            wrong_input(which='month')
+            continue
+
+        print("day of your birthday(1-31)   :  ", end='')
+        day = input()
+        day = '0'+day if len(day) == 1 else day
+
+        if int(day) > 31 or int(day) < 1 or (int(month) > 6 and int(day) == 31):
+            wrong_input(which='day')
+            continue
+        
 
         break
 
-    return (username, password, Fname, Lname, birthday)
+
+    return (username, password, Fname, Lname, f'{year}-{month}-{day}')
 
 
 
