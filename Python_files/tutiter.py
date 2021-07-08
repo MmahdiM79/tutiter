@@ -6,6 +6,29 @@ from GUI import *
 
 
 
+def tasks() -> None:
+    while True:
+        which = panel()
+
+
+        # show user avas
+        if which == 1: 
+            report = db.user_avas()
+
+            if not report[0]:
+                show_status(report[1])
+            else:
+                show_avas(report[1], 3)
+
+
+        # exit the app
+        if which == 13:
+            db.close()
+            reset()
+            exit()
+
+
+
 
 
 
@@ -37,6 +60,8 @@ if __name__ == '__main__':
             
             db.login(details[0], details[1])
 
+            tasks()
+
 
         elif chosen == 2: # login
             while True:
@@ -52,9 +77,15 @@ if __name__ == '__main__':
                 else:
                     break
 
+            tasks()
+
 
         else: # exit the app
+            db.close()
             reset()
             exit()
 
     
+
+
+            
