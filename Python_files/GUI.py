@@ -61,8 +61,8 @@ def start() -> int:
         reset()
 
         print('1: sign up')
-        print('2: login\n')
-        print('3: exit')
+        print('2: login')
+        print('3: exit\n')
 
         print('>>> ', end='')
 
