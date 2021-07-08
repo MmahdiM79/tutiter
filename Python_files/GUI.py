@@ -11,6 +11,14 @@ def clear() -> None:
 
 
 
+def gap() -> None:
+    ''' print some empty lines '''
+
+    print('\n\n\n\n\n\n\n\n\n')
+
+
+
+
 
 
 
