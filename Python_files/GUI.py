@@ -42,17 +42,24 @@ def reset() -> None:
 
 
 
+def wait_enter() -> None:
+    ''' wait for user to press 'enter' '''
+
+    print('\t\t\t      (press enter to continue)')
+    input()
+
+
+
+
 def wrong_input(which: str = None) -> None:
     ''' say to user that given input is invalid '''
 
     if which is None:
         print('\n\n\t\t\t    <<< your input is invalid >>>')
-        print('\t\t\t      (press enter to continue)')
     else:
         print(f'\n\n\t\t\t    <<< your \'{which}\' input is invalid >>>')
-        print('\t\t\t        (press enter to continue)')
 
-    input()
+    wait_enter()
 
 
 
@@ -62,8 +69,7 @@ def show_status(status: str) -> None:
 
     reset()
     print('\n\n\n\t\t    ', status, '\n')
-    print('\t\t\t      (press enter to continue)')
-    input()
+    wait_enter()
 
 
 
@@ -80,6 +86,14 @@ def check_back_option(s: str) -> bool:
     ''' returns s == '<<<' '''
 
     return (s == '<<<')
+
+
+
+
+
+
+
+
 
 
 
@@ -267,6 +281,6 @@ def show_avas(avas: list, number_of_columns: int) -> None:
             print(f'    ⟣-- (🗓  {ava[2]})')
             print(f'    ⟣-- (🆔 {ava[0]})\n\n\n')
 
-    print('\t\t\t      (press enter to continue)')
-    input()
+
+    wait_enter()
     
