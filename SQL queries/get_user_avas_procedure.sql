@@ -12,8 +12,8 @@ BEGIN
 
 
     -- check number of doer avas
-    if 0 = (SELECT count(id) FROM avas 
-        WHERE sender_id = @doer GROUP BY sender_id)
+    if (SELECT count(id) FROM avas WHERE sender_id = @doer GROUP BY sender_id)
+		IS NULL
     THEN
         SELECT 'you have not sent any ava yet!' as `status`;
         SELECT FALSE INTO res;
