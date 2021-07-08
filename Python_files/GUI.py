@@ -197,11 +197,11 @@ def sign_up() -> tuple:
 
 
 
-
-
 def login() -> tuple:
-    ''' get username and password and log in the user\n
-        return (username, password) '''
+    ''' 
+        get username and password and log in the user\n
+        return (username, password)
+     '''
 
     reset()
     back_option()
@@ -218,4 +218,33 @@ def login() -> tuple:
 
     return (user, psswrd)
 
-    
+
+
+
+def panel() -> int:
+    ''' show panel to user '''
+
+    while True:
+        reset()
+
+        print('1  : my avas')
+        print('2  : post an ava')
+        print('3  : avas of following user')
+        print('4  : avas of specific hashtag')
+        print('5  : avas of specific user')
+        print('6  : most liked avas')
+        print('7  : list of messages')
+        print('8  : send message')
+        print('9  : follow an user')
+        print('10 : unfollow an user')
+        print('11 : block an user')
+        print('12 : unblock an user')
+        print('13 : log out\n')
+
+        print('>>> ', end='')
+
+        chosen = input()
+        if str.isdigit(chosen) and int(chosen) in range(1, 14):
+            return int(chosen)
+        else:
+            wrong_input()
