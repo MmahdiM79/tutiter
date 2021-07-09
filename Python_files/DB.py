@@ -151,7 +151,7 @@ class DB(object):
 
     def most_liked_avas(self) -> list:
         ''' 
-            output: most liked avas as list
+            output: most liked avas as list\n
             \ttable(sender, ava, n_likes)
         '''
 
@@ -209,6 +209,15 @@ class DB(object):
 
 
 
+
+    def number_of_likes(self, ava_id: int) -> int:
+        ''' returns the number of likes of given ava '''
+
+        self.cursor.execute(f'SELECT nLikesAva({ava_id})')
+        return self.cursor.fetchall()[0][0]
+
+
+
         
 
 
@@ -234,7 +243,7 @@ class DB(object):
 
 
 
-    def __procedure(self, name: str, args: list = None) -> bool:
+    def  __procedure(self, name: str, args: list = None) -> bool:
         ''' call procedure from database '''
 
         no_res_output = ['login_records', 'messages_list', 'most_liked_avas']
