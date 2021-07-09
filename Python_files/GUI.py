@@ -83,7 +83,7 @@ def show_status(status: str) -> None:
 def back_option() -> None:
     ''' show back option to user '''
 
-    print('<enter \'<<<\' to go back>\n\n')
+    print('<enter \'<<<\' to go back>\n')
 
 
 
@@ -274,14 +274,14 @@ def panel() -> int:
 
 
 
-def avas_panel() -> int:
+def avas_panel(avas_id: list) -> tuple:
     ''' show the options of avas and return user chosen option '''
 
     print('\n')
     print('1> like an ava    2> send comment   3> likers   4> comments   5> send ava as message   (any other key)> noting')
     print('>>> ', end='')
 
-    return input()
+    return (input(), avas_id)
 
 
 
@@ -293,6 +293,8 @@ def show_avas(avas: list) -> str:
 
     db = DB()
 
+    avas_id = []
+
     avas = avas[0]
     number_of_columns = len(avas[0])
 
@@ -302,6 +304,7 @@ def show_avas(avas: list) -> str:
             print( '    |')
             print(f'    ⟣-- (🆔 {ava[0]},  🗓  {ava[2]})')
             print(f'    ⟣-- (♥️  {db.number_of_likes(ava[0])},  💬  {db.number_of_comments(ava[0])})\n\n\n')
+            avas_id.append(ava[0])
 
     if number_of_columns == 4:
         for ava in avas:
@@ -310,6 +313,7 @@ def show_avas(avas: list) -> str:
             print(space, '    |', sep='')
             print(space, f'    ⟣-- (🆔 {ava[0]},  🗓  {ava[3]})', sep='')
             print(space, f'    ⟣-- (♥️  {db.number_of_likes(ava[0])},  💬  {db.number_of_comments(ava[0])})\n\n\n', sep='')
+            avas_id.append(ava[0])
 
     if number_of_columns == 5:
         for ava in avas:
@@ -318,9 +322,10 @@ def show_avas(avas: list) -> str:
             print(space, '    |', sep='')
             print(space, f'    ⟣-- (🆔 {ava[0]},  🗓  {ava[3]})', sep='')
             print(space, f'    ⟣-- (♥️  {ava[4]},  💬  {db.number_of_comments(ava[0])})\n\n\n', sep='')
+            avas_id.append(ava[0])
 
 
-    return avas_panel()
+    return avas_panel(avas_id)
 
 
 
