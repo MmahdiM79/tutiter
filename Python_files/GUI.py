@@ -321,13 +321,25 @@ def post_an_ava() -> str:
 
 
 def get_hashtag() -> str:
-    ''' get hashtag from user '''
+    ''' get a hashtag from user '''
     reset()
     back_option()
 
     print('\n\nhashtag format that we accepted: exactly 5 character, each character in (a, A, b, B, ..., z, Z)')
     print('>>> ', end='')
     
+    return input()
+
+
+
+
+def get_username() -> str:
+    ''' get an username from user'''
+    reset()
+    back_option()
+
+    print('\n\nusername:  ', end='')
+
     return input()
 
     
