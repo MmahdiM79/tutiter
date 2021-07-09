@@ -10,6 +10,9 @@ except:
 
 
 def tasks() -> None:
+    global db
+
+
     while True:
         which = panel()
 
@@ -21,7 +24,7 @@ def tasks() -> None:
             if not report[0]:
                 show_status(report[1])
             else:
-                show_avas(report[1], 3)
+                show_avas(report[1])
 
 
         # post an ava
@@ -43,10 +46,26 @@ def tasks() -> None:
             report = db.avas_of_following()
 
             if report[0]:
-                show_avas(report[1], 4)
+                show_avas(report[1])
             else:
                 show_status(report[1])
-                
+
+
+        # avas with specific hashtag
+        if which == 4:
+            while True:
+                hashtag = get_hashtag()
+                if hashtag == '<<<':
+                    break
+
+                report = db.avas_of_hashtag(hashtag)
+
+                if report[0]:
+                    show_avas(report[1])
+                    break
+                else:
+                    show_status(report[1])
+
 
         # exit the app
         if which == 13:
