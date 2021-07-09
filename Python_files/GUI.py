@@ -1,3 +1,9 @@
+from DB import DB
+try:
+    from Python_files.DB import DB
+except Exception:
+    pass
+
 from os import system as sys
 import datetime
 
@@ -273,32 +279,33 @@ def show_avas(avas: list) -> None:
     reset()
     print('\n\n')
 
+    db = DB()
+
     avas = avas[0]
     number_of_columns = len(avas[0])
 
     if number_of_columns == 3:
         for ava in avas:
-            print(f'>-- 💬  {ava[1]}')
+            print(f'>-- 📝  {ava[1]}')
             print( '    |')
-            print(f'    ⟣-- (🗓  {ava[2]})')
-            print(f'    ⟣-- (🆔 {ava[0]})\n\n\n')
+            print(f'    ⟣-- (🆔 {ava[0]},  🗓  {ava[2]})')
+            print(f'    ⟣-- (♥️  {db.number_of_likes(ava[0])},  💬  {db.number_of_comments(ava[0])})\n\n\n')
 
     if number_of_columns == 4:
         for ava in avas:
-            print(f'👤{ava[1]} >-- 💬  {ava[2]}')
+            print(f'👤{ava[1]} >-- 📝  {ava[2]}')
             space = len(f'👤{ava[1]} ')*' '+' '
             print(space, '    |', sep='')
-            print(space, f'    ⟣-- (🗓  {ava[3]})', sep='')
-            print(space, f'    ⟣-- (🆔 {ava[0]})\n\n\n', sep='')
+            print(space, f'    ⟣-- (🆔 {ava[0]},  🗓  {ava[3]})', sep='')
+            print(space, f'    ⟣-- (♥️  {db.number_of_likes(ava[0])},  💬  {db.number_of_comments(ava[0])})\n\n\n', sep='')
 
     if number_of_columns == 5:
         for ava in avas:
-            print(f'👤{ava[1]} >-- 💬  {ava[2]}')
+            print(f'👤{ava[1]} >-- 📝  {ava[2]}')
             space = len(f'👤{ava[1]} ')*' '+' '
             print(space, '    |', sep='')
-            print(space, f'    ⟣-- (🗓  {ava[3]})', sep='')
-            print(space, f'    ⟣-- (🆔 {ava[0]})', sep='')
-            print(space, f'    ⟣-- (♥️  {ava[4]})\n\n\n', sep='')
+            print(space, f'    ⟣-- (🆔 {ava[0]},  🗓  {ava[3]})', sep='')
+            print(space, f'    ⟣-- (♥️  {ava[4]},  💬  {db.number_of_comments(ava[0])})\n\n\n', sep='')
 
 
     wait_enter()
