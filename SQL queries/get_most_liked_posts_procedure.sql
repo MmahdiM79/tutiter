@@ -14,7 +14,7 @@ BEGIN
         a.id,
         userNAME(a.sender_id) as sender, 
         a.ava, 
-        a.write_date
+        a.write_date,
         count(l.ava_id) as n_likes
         
     FROM avas a
@@ -27,7 +27,7 @@ BEGIN
         a.comment_of IS NULL
                 
     GROUP BY a.id
-    ORDER BY n_likes, a.write_date DESC
+    ORDER BY n_likes, a.write_date DESC;
 
 END;
 
