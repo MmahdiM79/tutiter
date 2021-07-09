@@ -27,7 +27,7 @@ BEGIN
         a.comment_of IS NULL
                 
     GROUP BY a.id
-    ORDER BY n_likes, a.write_date;
+    ORDER BY n_likes DESC, a.write_date DESC;
 
 END;
 
