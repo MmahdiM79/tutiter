@@ -9,6 +9,54 @@ except:
 
 
 
+
+
+
+
+
+
+def avas_tasks(which: int) -> None:
+    ''' do the user chosen ava task '''
+    global db
+
+    ava_id = get_ava()
+
+    if which == 1: # like an ava
+        show_status(db.like_ava(ava_id)[1])
+
+    if which == 2: # send comment
+        comment = get_comment()
+        show_status(db.send_comment(comment, ava_id)[1])
+
+    if which == 3: # likers
+        show_likers(db.list_likers(ava_id)[1])
+
+    if which == 4: # comments
+        task = show_avas(db.comments_of_ava(ava_id)[1])
+        if task in ('1', '2', '3', '4', '5'):
+                    avas_tasks(int(task))
+
+    if which == 5: # send ava as message:
+        message = get_message(False, True)
+
+        if message != '<<<':
+            username = get_username(False, False)
+
+            if username != '<<<':
+                show_status(db.send_message(message, username, ava_id)[1])
+
+
+
+
+
+
+
+
+
+
+
+
+
 def tasks() -> None:
     global db
 
@@ -24,7 +72,9 @@ def tasks() -> None:
             if not report[0]:
                 show_status(report[1])
             else:
-                show_avas(report[1])
+                task = show_avas(report[1])
+                if task in ('1', '2', '3', '4', '5'):
+                    avas_tasks(int(task))
 
 
         # post an ava
@@ -46,7 +96,9 @@ def tasks() -> None:
             report = db.avas_of_following()
 
             if report[0]:
-                show_avas(report[1])
+                task = show_avas(report[1])
+                if task in ('1', '2', '3', '4', '5'):
+                    avas_tasks(int(task))
             else:
                 show_status(report[1])
 
@@ -61,7 +113,9 @@ def tasks() -> None:
                 report = db.avas_of_hashtag(hashtag)
 
                 if report[0]:
-                    show_avas(report[1])
+                    task = show_avas(report[1])
+                    if task in ('1', '2', '3', '4', '5'):
+                        avas_tasks(int(task))
                     break
                 else:
                     show_status(report[1])
@@ -77,7 +131,9 @@ def tasks() -> None:
                 report = db.avas_of_user(username)
 
                 if report[0]:
-                    show_avas(report[1])
+                    task = show_avas(report[1])
+                    if task in ('1', '2', '3', '4', '5'):
+                        avas_tasks(int(task))
                     break
                 else:
                     show_status(report[1])
@@ -85,7 +141,9 @@ def tasks() -> None:
 
         # most liked avas
         if which == 6:
-            show_avas(db.most_liked_avas())
+            task = show_avas(db.most_liked_avas())
+            if task in ('1', '2', '3', '4', '5'):
+                avas_tasks(int(task))
 
 
         # list of messages
@@ -96,11 +154,15 @@ def tasks() -> None:
         # send message to user
         if which == 8:
             while True:
-                try:
-                    username, message = get_message()
-                except ValueError:
+                username = get_username(True, True)
+                if username == '<<<':
+                    break
+
+                message = get_message(False, False)
+                if message == '<<<':
                     break
                 
+
                 report = db.send_message(message, username, None)
                 show_status(report[1])
 
