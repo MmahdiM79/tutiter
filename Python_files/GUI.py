@@ -426,6 +426,38 @@ def show_messages_list(messages: list) -> None:
 
 
 
+def show_messages(messages: list) -> None:
+    ''' show messages with related ava '''
+    reset()
+    db = DB()
+
+    messages = messages[0]
+
+    for message in messages:
+        if message[1] is None:
+            print(f'🗓 {message[2]}  ~-~  message:  {message[0]}\n')
+        else:
+            report = db.get_ava(message[1])
+            ava = report[1][0][0]
+            print(f'\n🗓 {message[2]}  ~-~  message:  {message[0]}')
+            print( '                        |')
+            print( '                        ⟣-- related ava ↘️ ')
+            if report[0]:
+                print( '                           |')
+                print(f'                           ⟣-- 👤{ava[1]} >-- 📝  {ava[2]}')
+                print( '                                             |')
+                print(f'                                             ⟣-- (🆔 {ava[0]},  🗓  {ava[3]})', sep='')
+                print(f'                                             ⟣-- (♥️  {db.number_of_likes(message[1])},  💬  {db.number_of_comments(ava[0])})\n\n', sep='')
+            else:
+                print('                        |')
+                print('                        ⟣-- 🚫 the sender of this ava have blocked you or ava id is invalid\n\n')
+
+
+    wait_enter()
+
+
+
+
 def get_message(clean: bool, backable: bool) -> str:
     ''' return user chosen username and user message '''
 
