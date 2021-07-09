@@ -149,7 +149,21 @@ def tasks() -> None:
                 if report[0]:
                     break
 
-                
+
+        # unblock an user
+        if which == 12:
+            while True:
+                username = get_username()
+                if username == '<<<':
+                    break
+
+                report = db.unblock(username)
+                show_status(report[1])
+
+                if report[0]:
+                    break
+
+
         # exit the app
         if which == 13:
             db.close()
