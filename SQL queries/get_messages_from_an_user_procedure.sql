@@ -34,11 +34,9 @@ BEGIN
     SELECT TRUE INTO res;
 
     -- show messages
-    SELECT m.message, a.ava as related_ava, m.sent_date
-    FROM messages m
-    RIGHT OUTER JOIN avas a
-		ON m.ava_id = a.id
-    WHERE m.reciver_id = @doer AND m.sender_id = userID(username);
+    SELECT message, ava_id, sent_date
+    FROM messages
+    WHERE reciver_id = @doer AND sender_id = userID(username);
 
 END;
 
