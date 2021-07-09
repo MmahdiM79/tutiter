@@ -68,7 +68,7 @@ def show_status(status: str) -> None:
     ''' show the result of database '''
 
     reset()
-    print('\n\n\n\t\t    ⚠️ ', status[0][0][0], '\n')
+    print('\n\n\n\t\t         ⚠️ ', status[0][0][0], '\n')
     wait_enter()
 
 
@@ -244,7 +244,7 @@ def panel() -> int:
 
         print('1  : my avas')
         print('2  : post an ava')
-        print('3  : avas of following user')
+        print('3  : avas of following users')
         print('4  : avas of specific hashtag')
         print('5  : avas of specific user')
         print('6  : most liked avas')
