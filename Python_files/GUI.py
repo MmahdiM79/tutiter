@@ -286,8 +286,8 @@ def avas_panel() -> int:
 
 
 
-def show_avas(avas: list) -> None:
-    ''' display the given avas '''
+def show_avas(avas: list) -> str:
+    ''' display the given avas and return user chosen ava option  '''
     reset()
     print('\n\n')
 
@@ -320,7 +320,7 @@ def show_avas(avas: list) -> None:
             print(space, f'    ⟣-- (♥️  {ava[4]},  💬  {db.number_of_comments(ava[0])})\n\n\n', sep='')
 
 
-    wait_enter()
+    return avas_panel()
 
 
 
