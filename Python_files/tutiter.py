@@ -18,35 +18,56 @@ except:
 
 
 
-def avas_tasks(which: int) -> None:
+def avas_tasks(which: int, ids: list) -> None:
     ''' do the user chosen ava task '''
     global db
 
     ava_id = get_ava()
 
+
     if which == 1: # like an ava
-        show_status(db.like_ava(ava_id)[1])
+        if ava_id not in ids:
+            wrong_input('ava id')
+        else:
+            show_status(db.like_ava(ava_id)[1])
+
 
     if which == 2: # send comment
-        comment = get_comment()
-        show_status(db.send_comment(comment, ava_id)[1])
+        if ava_id not in ids:
+            wrong_input('ava id')
+        else:
+            comment = get_comment()
+            show_status(db.send_comment(comment, ava_id)[1])
+
 
     if which == 3: # likers
-        show_likers(db.list_likers(ava_id)[1])
+        if ava_id not in ids:
+            wrong_input('ava id')
+        else:
+            show_likers(db.list_likers(ava_id)[1])
+
 
     if which == 4: # comments
-        task = show_avas(db.comments_of_ava(ava_id)[1])
-        if task in ('1', '2', '3', '4', '5'):
-                    avas_tasks(int(task))
+        if ava_id not in ids:
+            wrong_input('ava id')
+        else:
+            task, avas_id = show_avas(db.comments_of_ava(ava_id)[1])
+                
+            if task in ('1', '2', '3', '4', '5'):
+                avas_tasks(int(task), avas_id)
+
 
     if which == 5: # send ava as message:
-        message = get_message(False, True)
+        if ava_id not in ids:
+            wrong_input('ava id')
+        else:
+            message = get_message(False, True)
 
-        if message != '<<<':
-            username = get_username(False, False)
+            if message != '<<<':
+                username = get_username(False, False)
 
-            if username != '<<<':
-                show_status(db.send_message(message, username, ava_id)[1])
+                if username != '<<<':
+                    show_status(db.send_message(message, username, ava_id)[1])
 
 
 
@@ -67,9 +88,9 @@ def tasks() -> None:
             if not report[0]:
                 show_status(report[1])
             else:
-                task = show_avas(report[1])
+                task, ids = show_avas(report[1])
                 if task in ('1', '2', '3', '4', '5'):
-                    avas_tasks(int(task))
+                    avas_tasks(int(task), ids)
 
 
         # post an ava
@@ -91,9 +112,9 @@ def tasks() -> None:
             report = db.avas_of_following()
 
             if report[0]:
-                task = show_avas(report[1])
+                task, ids = show_avas(report[1])
                 if task in ('1', '2', '3', '4', '5'):
-                    avas_tasks(int(task))
+                    avas_tasks(int(task), ids)
             else:
                 show_status(report[1])
 
@@ -108,9 +129,9 @@ def tasks() -> None:
                 report = db.avas_of_hashtag(hashtag)
 
                 if report[0]:
-                    task = show_avas(report[1])
+                    task, ids = show_avas(report[1])
                     if task in ('1', '2', '3', '4', '5'):
-                        avas_tasks(int(task))
+                        avas_tasks(int(task), ids)
                     break
                 else:
                     show_status(report[1])
@@ -126,9 +147,9 @@ def tasks() -> None:
                 report = db.avas_of_user(username)
 
                 if report[0]:
-                    task = show_avas(report[1])
+                    task, ids = show_avas(report[1])
                     if task in ('1', '2', '3', '4', '5'):
-                        avas_tasks(int(task))
+                        avas_tasks(int(task), ids)
                     break
                 else:
                     show_status(report[1])
@@ -136,9 +157,9 @@ def tasks() -> None:
 
         # most liked avas
         if which == 6:
-            task = show_avas(db.most_liked_avas())
+            task, ids = show_avas(db.most_liked_avas())
             if task in ('1', '2', '3', '4', '5'):
-                avas_tasks(int(task))
+                avas_tasks(int(task), ids)
 
 
         # list of messages
