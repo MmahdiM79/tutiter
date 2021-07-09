@@ -362,13 +362,17 @@ def get_hashtag() -> str:
 
 
 
-def get_username() -> str:
+def get_username(clean: bool, backable: bool) -> str:
     ''' get an username from user'''
-    reset()
-    back_option()
+
+    if clean:
+        reset()
+    
+    if backable:
+        back_option()
+
 
     print('\n\nusername:  ', end='')
-
     return input()
 
 
@@ -409,23 +413,31 @@ def show_messages_list(messages: list) -> None:
 
 
 
-def get_message() -> tuple:
+def get_message(clean: bool, backable: bool) -> str:
     ''' return user chosen username and user message '''
-    reset()
-    back_option()
 
-    print('\n\nusername:  ', end='')
-    username = input()
-    if check_back_option(username):
-        return ()
+    if clean:
+        reset()
+
+    if backable:
+        back_option()
+
 
     print('your message:  ', end='')
-    message = input()
-    if check_back_option(message):
-        return ()
+    return input()
 
-    
-    return (username, message)
+
+
+
+def show_likers(likers: list) -> None:
+    ''' show the given list of users '''
+    reset()
+
+    likers = likers[0]
+    for liker in likers:
+        print(f'👤  {liker[0]}')
+
+    wait_enter()
 
 
 
