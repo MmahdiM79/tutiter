@@ -108,6 +108,7 @@ def tasks() -> None:
                     break
 
 
+        # follow an user
         if which == 9:
             while True:
                 username = get_username()
@@ -115,6 +116,20 @@ def tasks() -> None:
                     break
 
                 report = db.follow(username)
+                show_status(report[1])
+
+                if report[0]:
+                    break
+
+
+        # unfollow an user
+        if which == 10:
+            while True:
+                username = get_username()
+                if username == '<<<':
+                    break
+
+                report = db.unfollow(username)
                 show_status(report[1])
 
                 if report[0]:
