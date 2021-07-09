@@ -267,12 +267,13 @@ def panel() -> int:
 
 
 
-def show_avas(avas: list, number_of_columns: int) -> None:
+def show_avas(avas: list) -> None:
     ''' display the given avas '''
     reset()
     print('\n\n')
 
     avas = avas[0]
+    number_of_columns = len(avas[0])
 
     if number_of_columns == 3:
         for ava in avas:
