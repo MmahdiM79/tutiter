@@ -15,6 +15,9 @@ except:
 
 
 
+
+
+
 def avas_tasks(which: int) -> None:
     ''' do the user chosen ava task '''
     global db
@@ -44,14 +47,6 @@ def avas_tasks(which: int) -> None:
 
             if username != '<<<':
                 show_status(db.send_message(message, username, ava_id)[1])
-
-
-
-
-
-
-
-
 
 
 
@@ -124,7 +119,7 @@ def tasks() -> None:
         # avas of specific user
         if which == 5:
             while True:
-                username = get_username()
+                username = get_username(True, True)
                 if username == '<<<':
                     break
 
@@ -178,7 +173,7 @@ def tasks() -> None:
             func = db.unblock if which == 12 else func # unblock an user
 
             while True:
-                username = get_username()
+                username = get_username(True, True)
                 if username == '<<<':
                     break
 
@@ -199,6 +194,7 @@ def tasks() -> None:
             db.close()
             reset()
             exit()
+
 
 
 
