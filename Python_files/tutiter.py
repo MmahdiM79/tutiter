@@ -167,8 +167,25 @@ def tasks() -> None:
             show_messages_list(db.messages_list())
 
 
-        # send message to user
+        # messages from user
         if which == 8:
+            while True:
+                username = get_username(True, True)
+                if username == '<<<':
+                    break
+
+                report = db.get_messages(username)
+
+                if report[0]:
+                    show_messages(report[1])
+                    break
+                else:
+                    show_status(report[1])
+            
+
+
+        # send message to user
+        if which == 9:
             while True:
                 username = get_username(True, True)
                 if username == '<<<':
@@ -187,11 +204,11 @@ def tasks() -> None:
 
 
         # options 9 to 12
-        if which in range(9, 13):
-            func = db.follow if which == 9 else None # follow an user
-            func = db.unfollow if which == 10 else func # unfollow an user
-            func = db.block if which == 11 else func # block an user
-            func = db.unblock if which == 12 else func # unblock an user
+        if which in range(10, 14):
+            func = db.follow if which == 10 else None # follow an user
+            func = db.unfollow if which == 11 else func # unfollow an user
+            func = db.block if which == 12 else func # block an user
+            func = db.unblock if which == 13 else func # unblock an user
 
             while True:
                 username = get_username(True, True)
@@ -206,12 +223,12 @@ def tasks() -> None:
 
 
         # show login records
-        if which == 13:
+        if which == 15:
             show_login_records(db.login_records())
 
 
         # exit the app
-        if which == 14:
+        if which == 16:
             db.close()
             reset()
             exit()
