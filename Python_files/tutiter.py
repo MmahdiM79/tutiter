@@ -108,56 +108,19 @@ def tasks() -> None:
                     break
 
 
-        # follow an user
-        if which == 9:
+        # options 9 to 12
+        if which in range(9, 13):
+            func = db.follow if which == 9 else None # follow an user
+            func = db.unfollow if which == 10 else func # unfollow an user
+            func = db.block if which == 11 else func # block an user
+            func = db.unblock if which == 12 else func # unblock an user
+
             while True:
                 username = get_username()
                 if username == '<<<':
                     break
 
-                report = db.follow(username)
-                show_status(report[1])
-
-                if report[0]:
-                    break
-
-
-        # unfollow an user
-        if which == 10:
-            while True:
-                username = get_username()
-                if username == '<<<':
-                    break
-
-                report = db.unfollow(username)
-                show_status(report[1])
-
-                if report[0]:
-                    break
-
-
-        # block an user
-        if which == 11:
-            while True:
-                username = get_username()
-                if username == '<<<':
-                    break
-
-                report = db.block(username)
-                show_status(report[1])
-
-                if report[0]:
-                    break
-
-
-        # unblock an user
-        if which == 12:
-            while True:
-                username = get_username()
-                if username == '<<<':
-                    break
-
-                report = db.unblock(username)
+                report = func(username)
                 show_status(report[1])
 
                 if report[0]:
