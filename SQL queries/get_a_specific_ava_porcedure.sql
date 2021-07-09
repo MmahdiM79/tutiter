@@ -44,7 +44,7 @@ BEGIN
     -- find ava details
     SELECT id, userNAME(sender_id) as sender, ava, write_date 
     FROM avas 
-    WHERE id = {ava_id};
+    WHERE id = ava_id;
     
 
 END;
