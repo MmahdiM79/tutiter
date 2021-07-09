@@ -127,8 +127,13 @@ def tasks() -> None:
                     break
 
 
-        # exit the app
+        # show login records
         if which == 13:
+            show_login_records(db.login_records())
+
+
+        # exit the app
+        if which == 14:
             db.close()
             reset()
             exit()
