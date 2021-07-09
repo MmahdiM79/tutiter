@@ -397,8 +397,9 @@ def show_login_records(records: list) -> None:
     ''' show the date of user's login '''
     reset()
 
+    records = records[0]
     for record in records:
-        print(f'🗓  {record}\n')
+        print(f'🗓    {record[0]}')
 
     wait_enter()
 
