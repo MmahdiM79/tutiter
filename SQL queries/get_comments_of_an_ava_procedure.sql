@@ -32,7 +32,7 @@ BEGIN
     SELECT TRUE INTO res;
     
     -- show the comments of given ava
-    SELECT DISTINCT userNAME(a.sender_id) as sender, a.ava, a.write_date
+    SELECT DISTINCT a.id, userNAME(a.sender_id) as sender, a.ava, a.write_date
 	FROM avas a
 	LEFT OUTER JOIN blocked b
 		ON b.user1 = a.sender_id
