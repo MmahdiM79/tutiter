@@ -101,8 +101,20 @@ def tasks() -> None:
                 except ValueError:
                     break
                 
-
                 report = db.send_message(message, username, None)
+                show_status(report[1])
+
+                if report[0]:
+                    break
+
+
+        if which == 9:
+            while True:
+                username = get_username()
+                if username == '<<<':
+                    break
+
+                report = db.follow(username)
                 show_status(report[1])
 
                 if report[0]:
