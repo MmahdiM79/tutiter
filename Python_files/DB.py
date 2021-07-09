@@ -46,7 +46,7 @@ class DB(object):
 
 
     def avas_of_following(self) -> tuple:
-        ''' output: (bool(res), list(status | table(sender, ava, write_date))'''
+        ''' output: (bool(res), list(status | table(ava_id, sender, ava, write_date))'''
 
         return (self.__procedure('avas_of_following'), self.__status())
 
@@ -195,7 +195,7 @@ class DB(object):
 
 
     def user_avas(self) -> tuple:
-        ''' output: (bool(res), list(status | table(ava, write_date)) '''
+        ''' output: (bool(res), list(status | table(ava_id, ava, write_date)) '''
 
         return (self.__procedure('user_avas'), self.__status())
 
