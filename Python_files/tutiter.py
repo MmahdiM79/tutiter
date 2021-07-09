@@ -222,6 +222,26 @@ def tasks() -> None:
                     break
 
 
+        # add a hashtag to ava
+        if which == 14:
+            while True:
+                hashtag = get_hashtag()
+                if hashtag == '<<<':
+                    break
+
+                ava_id = get_ava()
+                if ava_id == '<<<':
+                    break
+
+                report = db.set_hashtag(hashtag, ava_id)
+                show_status(report[1])
+
+                if report[0]:
+                    break
+
+
+
+
         # show login records
         if which == 15:
             show_login_records(db.login_records())
