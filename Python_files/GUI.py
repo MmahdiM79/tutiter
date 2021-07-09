@@ -260,7 +260,7 @@ def panel() -> int:
         print('>>> ', end='')
 
         chosen = input()
-        if str.isdigit(chosen) and int(chosen) in range(1, 14):
+        if str.isdigit(chosen) and int(chosen) in range(1, 15):
             return int(chosen)
         else:
             wrong_input()
@@ -389,6 +389,18 @@ def get_message() -> tuple:
 
     
     return (username, message)
+
+
+
+
+def show_login_records(records: list) -> None:
+    ''' show the date of user's login '''
+    reset()
+
+    for record in records:
+        print(f'🗓  {record}\n')
+
+    wait_enter()
 
 
     
