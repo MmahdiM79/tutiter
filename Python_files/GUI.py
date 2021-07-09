@@ -395,7 +395,10 @@ def get_ava() -> int:
     ''' get an ava id from user '''
 
     print('\nava id:  ', end='')
-    return int(input())
+    try:
+        return int(input())
+    except Exception:
+        return '<<<'
 
 
 
