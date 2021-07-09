@@ -53,14 +53,10 @@ class DB(object):
 
 
 
-    def avas_of_hashtag(self, hashtag: str) -> list:
-        ''' 
-            output: avas of given hashtag as list\n
-            \ttable(sender, ava, write_date)
-        '''
+    def avas_of_hashtag(self, hashtag: str) -> tuple:
+        ''' output: (bool(res), list(status | table(ava_id, sender, ava, write_date)) '''
 
-        self.__procedure('avas_of_hashtag', [hashtag])
-        return self.__status()
+        return (self.__procedure('avas_of_hashtag', [hashtag]), self.__status())
 
 
 
