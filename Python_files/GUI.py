@@ -254,7 +254,8 @@ def panel() -> int:
         print('10 : unfollow an user')
         print('11 : block an user')
         print('12 : unblock an user')
-        print('13 : log out\n')
+        print('13 : login records')
+        print('14 : log out\n')
 
         print('>>> ', end='')
 
