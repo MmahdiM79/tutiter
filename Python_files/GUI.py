@@ -278,8 +278,8 @@ def avas_panel() -> int:
     ''' show the options of avas and return user chosen option '''
 
     print('\n')
-    print('1> like an ava    2> send comment   3> likers   4> comments   (any other key)> noting\n')
-    print('\n>>> ', end='')
+    print('1> like an ava    2> send comment   3> likers   4> comments   5> send ava as message   (any other key)> noting')
+    print('>>> ', end='')
 
     return input()
 
@@ -377,8 +377,17 @@ def get_username() -> str:
 def get_ava() -> int:
     ''' get an ava id from user '''
 
-    print('\n\nava id:  ', end='')
+    print('\nava id:  ', end='')
     return int(input())
+
+
+
+
+def get_comment() -> str:
+    ''' get a comment from user '''
+
+    print('\ncomment:  ', end='')
+    return input()
 
 
 
