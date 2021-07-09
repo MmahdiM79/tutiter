@@ -92,6 +92,22 @@ def tasks() -> None:
         if which == 7:
             show_messages_list(db.messages_list())
 
+
+        # send message to user
+        if which == 8:
+            while True:
+                try:
+                    username, message = get_message()
+                except ValueError:
+                    break
+                
+
+                report = db.send_message(message, username, None)
+                show_status(report[1])
+
+                if report[0]:
+                    break
+
                 
         # exit the app
         if which == 13:
