@@ -67,6 +67,22 @@ def tasks() -> None:
                     show_status(report[1])
 
 
+        # avas of specific user
+        if which == 5:
+            while True:
+                username = get_username()
+                if username == '<<<':
+                    break
+
+                report = db.avas_of_user(username)
+
+                if report[0]:
+                    show_avas(report[1])
+                    break
+                else:
+                    show_status(report[1])
+                    
+                
         # exit the app
         if which == 13:
             db.close()
