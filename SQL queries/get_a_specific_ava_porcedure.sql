@@ -30,7 +30,7 @@ BEGIN
 
 
     -- check that sender of this ava have blocked doer or not
-    IF @doer IN (SELECT user2 FROM blocks WHERE user1 = @sender_id)
+    IF @doer IN (SELECT user2 FROM blocked WHERE user1 = @sender_id)
     THEN
         SELECT 'the sender of this ava have blocked you!' as `status`;
         SELECT FALSE INTO res;
