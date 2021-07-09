@@ -374,6 +374,15 @@ def get_username() -> str:
 
 
 
+def get_ava() -> int:
+    ''' get an ava id from user '''
+
+    print('\n\nava id:  ', end='')
+    return int(input())
+
+
+
+
 def show_messages_list(messages: list) -> None:
     ''' show messages list of user '''
     reset()
