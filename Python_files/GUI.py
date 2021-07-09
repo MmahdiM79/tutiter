@@ -275,7 +275,10 @@ def panel() -> int:
 
 
 def avas_panel(avas_id: list) -> tuple:
-    ''' show the options of avas and return user chosen option '''
+    ''' 
+        show the options of avas and\n
+        output: (user chosen option, list of avas id)
+    '''
 
     print('\n')
     print('1> like an ava    2> send comment   3> likers   4> comments   5> send ava as message   (any other key)> noting')
@@ -286,8 +289,11 @@ def avas_panel(avas_id: list) -> tuple:
 
 
 
-def show_avas(avas: list) -> str:
-    ''' display the given avas and return user chosen ava option  '''
+def show_avas(avas: list) -> tuple:
+    ''' 
+        display the given avas and\n
+        output: (user chosen option, list of avas id)
+    '''
     reset()
     print('\n\n')
 
