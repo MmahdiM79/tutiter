@@ -26,7 +26,7 @@ BEGIN
     SELECT TRUE INTO res;
     
     -- show the avas with given hashtag
-    SELECT DISTINCT userNAME(sender_id) as sender, ava, a.write_date
+    SELECT DISTINCT a.id, userNAME(sender_id) as sender, ava, a.write_date
     FROM avas a
     LEFT OUTER JOIN blocked b
 	    ON a.sender_id = b.user1
