@@ -81,7 +81,12 @@ def tasks() -> None:
                     break
                 else:
                     show_status(report[1])
-                    
+
+
+        # most liked avas
+        if which == 6:
+            show_avas(db.most_liked_avas())
+
                 
         # exit the app
         if which == 13:
