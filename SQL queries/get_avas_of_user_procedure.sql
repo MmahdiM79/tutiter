@@ -34,7 +34,7 @@ BEGIN
     SELECT DISTINCT id, ava, write_date 
     FROM avas
     WHERE sender_id = userID(username) AND
-        a.comment_of IS NULL
-    ORDER BY a.write_date DESC;
+        comment_of IS NULL
+    ORDER BY write_date DESC;
 
 END;
