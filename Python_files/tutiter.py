@@ -87,6 +87,11 @@ def tasks() -> None:
         if which == 6:
             show_avas(db.most_liked_avas())
 
+
+        # list of messages
+        if which == 7:
+            show_messages_list(db.messages_list())
+
                 
         # exit the app
         if which == 13:
