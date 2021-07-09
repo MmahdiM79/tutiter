@@ -351,4 +351,21 @@ def get_username() -> str:
 
     return input()
 
+
+
+
+def show_messages_list(messages: list) -> None:
+    ''' show messages list of user '''
+    reset()
+
+    messages = messages[0]
+
+    if len(messages) == 0:
+        print('\n\n\n\t\t\t        ', 'no message 📭\n\n')
+    else:
+        for message in messages:
+            print(f'👤{message[0]} last message at {message[1]}\n')
+
+    wait_enter()
+
     
