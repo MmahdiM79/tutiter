@@ -241,7 +241,7 @@ class DB(object):
     def __procedure(self, name: str, args: list = None) -> bool:
         ''' call procedure from database '''
 
-        no_res_output = ['avas_of_hashtag', 'login_records', 'messages_list', 'most_liked_avas']
+        no_res_output = ['login_records', 'messages_list', 'most_liked_avas']
 
         if name not in no_res_output:
             if args is None:
