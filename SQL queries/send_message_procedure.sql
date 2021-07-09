@@ -23,6 +23,15 @@ BEGIN
 	END IF;
     
     
+    -- check reciver_username
+    IF reciver_username NOT IN (SELECT username FROM users)
+    THEN
+		SELECT 'given username is invalid!' as `status`;
+		SELECT FALSE INTO res;
+		LEAVE scope;
+	END IF;
+    
+    
     SET @`doer` = getDOERid(); -- find the doer of this procedure
     
     
