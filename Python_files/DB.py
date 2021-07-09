@@ -218,6 +218,15 @@ class DB(object):
 
 
 
+
+    def number_of_comments(self, ava_id: int) -> int:
+        ''' returns the number of likes of given ava '''
+
+        self.cursor.execute(f'SELECT nCommentsAva({ava_id})')
+        return self.cursor.fetchall()[0][0]
+
+
+
         
 
 
