@@ -235,6 +235,14 @@ class DB(object):
 
 
 
+
+    def set_hashtag(self, hashtag: str, ava_id: int) -> tuple:
+        ''' output: (bool(res), status) '''
+
+        return (self.__procedure('set_hashtag', [hashtag, ava_id]), self.__status())
+
+
+
         
 
 
