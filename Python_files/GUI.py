@@ -368,4 +368,26 @@ def show_messages_list(messages: list) -> None:
 
     wait_enter()
 
+
+
+
+def get_message() -> tuple:
+    ''' return user chosen username and user message '''
+    reset()
+    back_option()
+
+    print('\n\nusername:  ', end='')
+    username = input()
+    if check_back_option(username):
+        return ()
+
+    print('your message:  ', end='')
+    message = input()
+    if check_back_option(message):
+        return ()
+
+    
+    return (username, message)
+
+
     
