@@ -274,6 +274,18 @@ def panel() -> int:
 
 
 
+def avas_panel() -> int:
+    ''' show the options of avas and return user chosen option '''
+
+    print('\n')
+    print('1> like an ava    2> send comment   3> likers   4> comments   (any other key)> noting\n')
+    print('\n>>> ', end='')
+
+    return input()
+
+
+
+
 def show_avas(avas: list) -> None:
     ''' display the given avas '''
     reset()
