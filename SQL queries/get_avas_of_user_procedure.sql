@@ -31,8 +31,8 @@ BEGIN
     -- set resualt
     SELECT TRUE INTO res;
 
-    SELECT DISTINCT ava, write_date 
-    FROM avas a
+    SELECT DISTINCT id, ava, write_date 
+    FROM avas
     WHERE sender_id = userID(username) AND
         a.comment_of IS NULL
     ORDER BY a.write_date DESC;
