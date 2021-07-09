@@ -255,18 +255,20 @@ def panel() -> int:
         print('5  : avas of specific user')
         print('6  : most liked avas')
         print('7  : list of messages')
-        print('8  : send message')
-        print('9  : follow an user')
-        print('10 : unfollow an user')
-        print('11 : block an user')
-        print('12 : unblock an user')
-        print('13 : login records')
-        print('14 : log out\n')
+        print('8  : messages from user')
+        print('9  : send message')
+        print('10  : follow an user')
+        print('11 : unfollow an user')
+        print('12 : block an user')
+        print('13 : unblock an user')
+        print('14 : set hashtag to ava')
+        print('15 : login records')
+        print('16 : log out\n')
 
         print('>>> ', end='')
 
         chosen = input()
-        if str.isdigit(chosen) and int(chosen) in range(1, 15):
+        if str.isdigit(chosen) and int(chosen) in range(1, 17):
             return int(chosen)
         else:
             wrong_input()
