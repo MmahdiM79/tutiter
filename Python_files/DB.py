@@ -229,16 +229,9 @@ class DB(object):
 
 
     def get_ava(self, ava_id) -> tuple:
-        ''' output: (ava_id, sender, ava, write_date) '''
+        ''' output: (bool(res), list(status | (id, sender, ava, write_date))) '''
 
-        self.cursor.execute(f'''SELECT id, userNAME(sender_id) as sender, ava, write_date 
-                                FROM avas 
-                                WHERE id = {ava_id};''')
-
-        try:
-            return self.cursor.fetchall()[0]
-        except IndexError:
-            return ()
+        return (self.__procedure('get_ava', [ava_id]), self.__status())
 
 
 
